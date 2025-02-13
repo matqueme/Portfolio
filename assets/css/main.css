@@ -3,3 +3,64 @@
 @theme {
   --color-custom-color-example: #1e1e1e;
 }
+
+@font-face {
+  font-family: 'gebuk-regular';
+  src: url('@/assets/fonts/gebuk-regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Black';
+  src: url('@/assets/fonts/TitilliumWeb-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Bold';
+  src: url('@/assets/fonts/TitilliumWeb-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-BoldItalic';
+  src: url('@/assets/fonts/TitilliumWeb-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-ExtraLight';
+  src: url('@/assets/fonts/TitilliumWeb-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-ExtraLightItalic';
+  src: url('@/assets/fonts/TitilliumWeb-ExtraLightItalic.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Italic';
+  src: url('@/assets/fonts/TitilliumWeb-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Light';
+  src: url('@/assets/fonts/TitilliumWeb-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-LightItalic';
+  src: url('@/assets/fonts/TitilliumWeb-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Regular';
+  src: url('@/assets/fonts/TitilliumWeb-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-SemiBold';
+  src: url('@/assets/fonts/TitilliumWeb-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-SemiBoldItalic';
+  src: url('@/assets/fonts/TitilliumWeb-SemiBoldItalic.ttf') format('truetype');
+}
