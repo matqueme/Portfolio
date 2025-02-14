@@ -3,7 +3,9 @@
     ref="container"
     class="bg-dots flex h-screen items-center justify-center bg-[#F0EBE3]"
   >
-    <div class="flex max-w-screen-2xl">
+    <div
+      class="flex max-w-screen-2xl items-center justify-between gap-6 px-16 py-8"
+    >
       <div class="w-1/2">
         <h1 ref="title" class="font-[gebuk] text-6xl">
           Bienvenue dans
@@ -59,9 +61,9 @@
       </div>
       <div class="w-1/2">
         <NuxtImg
-          src="path/to/your/image.jpg"
-          alt="Description de l'image"
-          class="h-full w-full object-cover"
+          src="/images/Notre-Dame-De-Paris.png"
+          alt="Notre-Dame de Paris"
+          class="h-full w-full overflow-hidden rounded-xl object-cover"
         />
       </div>
     </div>
