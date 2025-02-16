@@ -37,7 +37,8 @@
           </button>
           <button
             ref="projectsButton"
-            class="relative ml-4 flex items-center justify-center overflow-hidden rounded-full border-2 border-[#DF463E] px-6 py-3 font-[TitilliumWeb-SemiBold] text-xl text-[#DF463E] hover:cursor-pointer"
+            style="overflow-clip-margin: 1px"
+            class="relative ml-4 flex items-center justify-center overflow-clip rounded-full border-2 border-[#DF463E] px-6 py-3 font-[TitilliumWeb-SemiBold] text-xl text-[#DF463E] hover:cursor-pointer"
             @mouseenter="animateButtonCircleIn"
             @mouseleave="animateButtonCircleOut"
             @mousemove="moveCircle"
