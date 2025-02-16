@@ -109,11 +109,11 @@
   }
   h5 {
     font-size: var(--text-lg);
-    font-family: var(--font-regular);
+    font-family: var(--font-semibold);
   }
   h6 {
     font-size: var(--text-base);
-    font-family: var(--font-regular);
+    font-family: var(--font-semibold);
   }
   p {
     font-size: var(--text-base);

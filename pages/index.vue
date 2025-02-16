@@ -1,9 +1,11 @@
 <template>
   <div class="page-container">
-    <Section />
+    <HeroSection />
+    <OffersSections />
   </div>
 </template>
 
 <script setup lang="ts">
-import Section from '@/components/sections/HeroSection.vue';
+import HeroSection from '@/components/sections/HeroSection.vue';
+import OffersSections from '~/components/sections/OffersSections.vue';
 </script>
