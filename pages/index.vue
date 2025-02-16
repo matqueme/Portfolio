@@ -68,6 +68,7 @@
       </div>
     </div>
   </div>
+  <OffersSections />
 </template>
 
 <script setup lang="ts">
@@ -78,6 +79,7 @@ import {
   useButtonCircleAnimations,
   useTextSlideAnimations,
 } from '@/composables/animations';
+import OffersSections from '~/sections/homepage/OffersSections.vue';
 
 const notreElement = ref<HTMLElement | null>(null);
 const projectsButton = ref<HTMLElement | null>(null);
