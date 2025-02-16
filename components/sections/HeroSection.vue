@@ -1,37 +1,34 @@
 <template>
-  <div
-    ref="container"
-    class="bg-dots flex h-screen items-center justify-center bg-[#F0EBE3]"
-  >
-    <div
-      class="relative flex max-w-screen-2xl flex-col items-center justify-between gap-6 px-16 py-8 md:flex-row"
-    >
-      <div class="w-full md:w-1/2">
-        <h1 ref="title" class="font-[gebuk] text-6xl">
+  <div ref="container" class="bg-dots section-color h-screen bg-[#F0EBE3]">
+    <div class="section relative items-center gap-6 md:flex md:flex-row">
+      <div class="w-full text-center md:w-1/2 md:text-left">
+        <h1 ref="title">
           Bienvenue dans
           <div
             @mouseenter="animateTextTurnIn"
             @mouseleave="animateTextTurnOut"
             class="inline-block"
           >
-            <span ref="notreElement" class="inline-block text-[#DF463E]">
+            <span
+              ref="notreElement"
+              class="inline-block text-(--color-custom-red)"
+            >
               notre
             </span>
           </div>
-
           univers
         </h1>
-        <h2 ref="subtitle" class="font-[TitilliumWeb-Regular] text-xl">
+        <h6 ref="subtitle">
           Nous concevons des expériences web où l'élégance intemporelle
           rencontre la précision du digital. Chaque projet est une fusion d’art
           et de technologie, pensée pour marquer les esprits.
-        </h2>
+        </h6>
         <div
           class="mt-8 flex flex-col items-center gap-4 md:items-start lg:flex-row"
         >
           <button
             ref="contactButton"
-            class="overflow-hidden rounded-full bg-[#DF463E] px-6 py-3 font-[TitilliumWeb-SemiBold] text-xl text-white hover:cursor-pointer"
+            class="overflow-hidden rounded-full bg-(--color-custom-red) px-6 py-3 text-xl font-bold text-white hover:cursor-pointer"
             @mouseenter="animateTextSlideIn"
             @mouseleave="animateTextSlideOut"
           >
@@ -40,7 +37,7 @@
           <button
             ref="projectsButton"
             style="overflow-clip-margin: 1px"
-            class="relative flex items-center justify-center overflow-clip rounded-full border-2 border-[#DF463E] px-6 py-3 font-[TitilliumWeb-SemiBold] text-xl text-[#DF463E] hover:cursor-pointer"
+            class="relative flex items-center justify-center overflow-clip rounded-full border-2 border-(--color-custom-red) px-6 py-3 text-xl font-bold text-(--color-custom-red) hover:cursor-pointer"
             @mouseenter="animateButtonCircleIn"
             @mouseleave="animateButtonCircleOut"
             @mousemove="moveCircle"
@@ -91,13 +88,17 @@
         </div>
         <div class="absolute right-0 -bottom-15">
           <div class="mb-4 flex flex-row gap-4">
-            <div class="h-1 w-16 rounded-full bg-[#DF463E] sm:w-24 lg:w-24" />
-            <div class="h-1 w-32 rounded-full bg-[#DF463E] sm:w-48 lg:w-56" />
+            <div
+              class="h-1 w-16 rounded-full bg-(--color-custom-red) sm:w-24 lg:w-24"
+            />
+            <div
+              class="h-1 w-32 rounded-full bg-(--color-custom-red) sm:w-48 lg:w-56"
+            />
           </div>
         </div>
       </div>
       <Star
-        class="absolute -bottom-50 left-20 h-16 w-16 opacity-25 md:h-20 md:w-20 lg:h-24 lg:w-24"
+        class="absolute -bottom-45 left-20 h-16 w-16 opacity-25 md:h-20 md:w-20 lg:h-24 lg:w-24"
       />
     </div>
   </div>
