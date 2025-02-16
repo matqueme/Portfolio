@@ -1,14 +1,14 @@
 <template>
   <div
-    class="flex w-130 flex-col rounded-2xl bg-white p-6 text-gray-800 shadow-lg"
+    class="flex flex-col rounded-2xl bg-white p-6 text-left text-black shadow-lg"
   >
-    <h2 class="font-[gebuk-regular] text-xl font-bold text-red-600">
+    <h3 class="text-(--color-custom-red)">
       {{ title }}
-    </h2>
-    <p class="mt-2 font-[TitilliumWeb-Bold] text-gray-600">
+    </h3>
+    <h6 class="">
       {{ description }}
-    </p>
-    <ul class="mt-4 space-y-2">
+    </h6>
+    <ul class="mt-6 space-y-2">
       <li
         v-for="(feature, index) in features"
         :key="index"
@@ -21,19 +21,17 @@
       </li>
     </ul>
     <div class="flex flex-1" />
-    <p
-      class="mt-10 text-center font-[TitilliumWeb-Regular] text-lg font-semibold"
-    >
-      {{ price }}
-    </p>
-    <button
-      ref="contactButton"
-      class="mx-auto mt-5 block overflow-hidden rounded-full bg-[#DF463E] px-6 py-1 font-[TitilliumWeb-SemiBold] text-lg text-white hover:cursor-pointer"
-      @mouseenter="animateTextSlideIn"
-      @mouseleave="animateTextSlideOut"
-    >
-      <span ref="textButtonElement" class="flex"> Contactez-nous </span>
-    </button>
+    <p class="mt-12 text-center text-sm" v-html="price" />
+    <div class="flex justify-center">
+      <button
+        ref="contactButton"
+        class="mt-2 overflow-hidden rounded-full bg-(--color-custom-red) px-8 py-2 text-lg font-bold text-white hover:cursor-pointer"
+        @mouseenter="animateTextSlideIn"
+        @mouseleave="animateTextSlideOut"
+      >
+        <span ref="textButtonElement" class="flex"> Contactez-nous </span>
+      </button>
+    </div>
   </div>
 </template>
 

@@ -1,5 +1,8 @@
 <template>
-  <div ref="container" class="bg-dots section-color h-screen bg-[#F0EBE3]">
+  <div
+    ref="container"
+    class="bg-dots section-color min-h-screen overflow-hidden bg-[#F0EBE3]"
+  >
     <div class="section relative items-center gap-6 md:flex md:flex-row">
       <div class="w-full text-center md:w-1/2 md:text-left">
         <h1 ref="title">
@@ -59,7 +62,7 @@
           </button>
         </div>
       </div>
-      <div class="relative mt-8 w-full md:mt-0 md:w-1/2">
+      <div class="relative mt-8 mb-8 w-full md:mt-0 md:w-1/2">
         <NuxtImg
           src="/images/Notre-Dame-De-Paris.png"
           alt="Notre-Dame de Paris"

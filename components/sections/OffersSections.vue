@@ -1,16 +1,12 @@
 <template>
-  <div class="section-color bg-black">
-    <div class="section">
-      <h2
-        class="pt-10 pb-5 text-center font-[gebuk-regular] text-5xl text-white"
-      >
-        Nos <span class="text-red-500">plans</span> pour vous
+  <div class="section-color bg-black text-white">
+    <div class="section text-center">
+      <h2>
+        Nos <span class="text-(--color-custom-red)">plans</span> pour vous
       </h2>
-      <h5 class="text-center font-[TitilliumWeb-Regular] text-xl text-white">
-        Construisons ensemble les fondations de votre présence en ligne
-      </h5>
+      <h5>Construisons ensemble les fondations de votre présence en ligne</h5>
       <div
-        class="flex flex-wrap items-stretch justify-center gap-10 px-4 py-20 md:px-8"
+        class="grid grid-cols-1 items-stretch justify-center gap-10 px-4 pt-16 md:px-8 lg:grid-cols-3"
       >
         <OfferCard v-for="(plan, index) in plans" :key="index" v-bind="plan" />
       </div>
@@ -20,7 +16,15 @@
 
 <script setup lang="ts">
 import OfferCard from '~/components/OfferCard.vue';
-const plans = [
+
+interface PlanProps {
+  title: string;
+  description: string;
+  features: string[];
+  price: string;
+}
+
+const plans: PlanProps[] = [
   {
     title: 'Plan Starter',
     description:
@@ -34,7 +38,7 @@ const plans = [
       'Hébergement et nom de domaine (en option)',
       'Livraison à partir de 2 semaines',
     ],
-    price: 'À partir de 1200 €',
+    price: 'à partir de <span class="text-xl font-semibold">1200 €</span>',
   },
   {
     title: 'Plan Pro',
@@ -51,7 +55,7 @@ const plans = [
       'Hébergement et nom de domaine (en option)',
       'Livraison en 3 à 6 semaines',
     ],
-    price: 'À partir de 2000 €',
+    price: 'à partir de <span class="text-xl font-semibold">2000 €</span>',
   },
   {
     title: 'Plan Sur Mesure',
@@ -67,7 +71,8 @@ const plans = [
       'Aide à la gestion de la communication (Carte de visite, réseaux sociaux...)',
       'Délai variable selon le projet',
     ],
-    price: 'Sur devis (Devis gratuit)',
+    price:
+      '<span class="text-xl font-semibold">Sur devis</span> (Devis gratuit)',
   },
 ];
 </script>
