@@ -1,20 +1,31 @@
 <template>
-  <div class="w-full max-w-md rounded-2xl bg-white p-6 text-gray-800 shadow-lg">
-    <h2 class="text-xl font-bold text-red-600">{{ title }}</h2>
-    <p class="mt-2 text-gray-600">{{ description }}</p>
+  <div class="w-130 rounded-2xl bg-white p-6 text-gray-800 shadow-lg">
+    <h2 class="font-[gebuk-regular] text-xl font-bold text-red-600">
+      {{ title }}
+    </h2>
+    <p class="mt-2 font-[TitilliumWeb-Bold] text-gray-600">
+      {{ description }}
+    </p>
     <ul class="mt-4 space-y-2">
       <li
         v-for="(feature, index) in features"
         :key="index"
         class="flex items-center"
       >
-        <span class="mr-2 text-green-500">✔</span>{{ feature }}
+        <div>
+          <PhosphorIconCheckCircle class="mr-3 text-xl" />
+        </div>
+        {{ feature }}
       </li>
     </ul>
-    <p class="mt-6 text-lg font-semibold">{{ price }}</p>
+    <p
+      class="mt-10 text-center font-[TitilliumWeb-Regular] text-lg font-semibold"
+    >
+      {{ price }}
+    </p>
     <button
       ref="contactButton"
-      class="overflow-hidden rounded-full bg-[#DF463E] px-6 py-3 font-[TitilliumWeb-SemiBold] text-xl text-white hover:cursor-pointer"
+      class="mx-auto mt-5 block overflow-hidden rounded-full bg-[#DF463E] px-6 py-1 font-[TitilliumWeb-SemiBold] text-lg text-white hover:cursor-pointer"
       @mouseenter="animateTextSlideIn"
       @mouseleave="animateTextSlideOut"
     >

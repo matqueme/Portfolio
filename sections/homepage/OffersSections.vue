@@ -1,13 +1,13 @@
 <template>
   <div class="bg-black">
-    <h2 class="pt-10 pb-5 text-center font-[gebuk] text-5xl text-white">
+    <h2 class="pt-10 pb-5 text-center font-[gebuk-regular] text-5xl text-white">
       Nos <span class="text-red-500">plans</span> pour vous
     </h2>
     <h5 class="text-center font-[TitilliumWeb-Regular] text-xl text-white">
       Construisons ensemble les fondations de votre présence en ligne
     </h5>
     <div
-      class="flex flex-col items-center justify-center space-y-4 px-4 py-20 md:flex-row md:space-y-0 md:space-x-4 md:px-8"
+      class="flex flex-wrap items-stretch justify-center gap-10 px-4 py-20 md:px-8"
     >
       <OfferCard v-for="(plan, index) in plans" :key="index" v-bind="plan" />
     </div>

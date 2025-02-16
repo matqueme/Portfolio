@@ -7,7 +7,7 @@
       class="flex max-w-screen-2xl items-center justify-between gap-6 px-16 py-8"
     >
       <div class="w-1/2">
-        <h1 ref="title" class="font-[gebuk] text-6xl">
+        <h1 ref="title" class="font-[gebuk-regular] text-6xl">
           Bienvenue dans
           <div
             @mouseenter="animateTextTurnIn"
