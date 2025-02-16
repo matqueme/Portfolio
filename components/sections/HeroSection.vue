@@ -4,7 +4,7 @@
     class="bg-dots flex h-screen items-center justify-center bg-[#F0EBE3]"
   >
     <div
-      class="flex max-w-screen-2xl flex-col items-center justify-between gap-6 px-16 py-8 md:flex-row"
+      class="relative flex max-w-screen-2xl flex-col items-center justify-between gap-6 px-16 py-8 md:flex-row"
     >
       <div class="w-full md:w-1/2">
         <h1 ref="title" class="font-[gebuk] text-6xl">
@@ -89,7 +89,16 @@
             />
           </div>
         </div>
+        <div class="absolute right-0 -bottom-15">
+          <div class="mb-4 flex flex-row gap-4">
+            <div class="h-1 w-16 rounded-full bg-[#DF463E] sm:w-24 lg:w-24" />
+            <div class="h-1 w-32 rounded-full bg-[#DF463E] sm:w-48 lg:w-56" />
+          </div>
+        </div>
       </div>
+      <Star
+        class="absolute -bottom-50 left-20 h-16 w-16 opacity-25 md:h-20 md:w-20 lg:h-24 lg:w-24"
+      />
     </div>
   </div>
 </template>
