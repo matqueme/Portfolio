@@ -4,9 +4,9 @@
     class="bg-dots flex h-screen items-center justify-center bg-[#F0EBE3]"
   >
     <div
-      class="flex max-w-screen-2xl items-center justify-between gap-6 px-16 py-8"
+      class="flex max-w-screen-2xl flex-col items-center justify-between gap-6 px-16 py-8 md:flex-row"
     >
-      <div class="w-1/2">
+      <div class="w-full md:w-1/2">
         <h1 ref="title" class="font-[gebuk] text-6xl">
           Bienvenue dans
           <div
@@ -26,7 +26,9 @@
           rencontre la précision du digital. Chaque projet est une fusion d’art
           et de technologie, pensée pour marquer les esprits.
         </h2>
-        <div class="mt-8 flex flex-row">
+        <div
+          class="mt-8 flex flex-col items-center gap-4 md:items-start lg:flex-row"
+        >
           <button
             ref="contactButton"
             class="overflow-hidden rounded-full bg-[#DF463E] px-6 py-3 font-[TitilliumWeb-SemiBold] text-xl text-white hover:cursor-pointer"
@@ -38,7 +40,7 @@
           <button
             ref="projectsButton"
             style="overflow-clip-margin: 1px"
-            class="relative ml-4 flex items-center justify-center overflow-clip rounded-full border-2 border-[#DF463E] px-6 py-3 font-[TitilliumWeb-SemiBold] text-xl text-[#DF463E] hover:cursor-pointer"
+            class="relative flex items-center justify-center overflow-clip rounded-full border-2 border-[#DF463E] px-6 py-3 font-[TitilliumWeb-SemiBold] text-xl text-[#DF463E] hover:cursor-pointer"
             @mouseenter="animateButtonCircleIn"
             @mouseleave="animateButtonCircleOut"
             @mousemove="moveCircle"
@@ -60,11 +62,11 @@
           </button>
         </div>
       </div>
-      <div class="w-1/2">
+      <div class="mt-8 w-full md:mt-0 md:w-1/2">
         <NuxtImg
           src="/images/Notre-Dame-De-Paris.png"
           alt="Notre-Dame de Paris"
-          class="h-full w-full overflow-hidden rounded-xl object-cover"
+          class="h-auto w-full max-w-full overflow-hidden rounded-xl object-contain"
         />
       </div>
     </div>
