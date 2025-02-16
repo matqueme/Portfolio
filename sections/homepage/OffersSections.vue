@@ -1,15 +1,19 @@
 <template>
-  <div class="bg-black">
-    <h2 class="pt-10 pb-5 text-center font-[gebuk-regular] text-5xl text-white">
-      Nos <span class="text-red-500">plans</span> pour vous
-    </h2>
-    <h5 class="text-center font-[TitilliumWeb-Regular] text-xl text-white">
-      Construisons ensemble les fondations de votre présence en ligne
-    </h5>
-    <div
-      class="flex flex-wrap items-stretch justify-center gap-10 px-4 py-20 md:px-8"
-    >
-      <OfferCard v-for="(plan, index) in plans" :key="index" v-bind="plan" />
+  <div class="section-color bg-black">
+    <div class="section">
+      <h2
+        class="pt-10 pb-5 text-center font-[gebuk-regular] text-5xl text-white"
+      >
+        Nos <span class="text-red-500">plans</span> pour vous
+      </h2>
+      <h5 class="text-center font-[TitilliumWeb-Regular] text-xl text-white">
+        Construisons ensemble les fondations de votre présence en ligne
+      </h5>
+      <div
+        class="flex flex-wrap items-stretch justify-center gap-10 px-4 py-20 md:px-8"
+      >
+        <OfferCard v-for="(plan, index) in plans" :key="index" v-bind="plan" />
+      </div>
     </div>
   </div>
 </template>

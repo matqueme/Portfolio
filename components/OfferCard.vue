@@ -1,5 +1,7 @@
 <template>
-  <div class="w-130 rounded-2xl bg-white p-6 text-gray-800 shadow-lg">
+  <div
+    class="flex w-130 flex-col rounded-2xl bg-white p-6 text-gray-800 shadow-lg"
+  >
     <h2 class="font-[gebuk-regular] text-xl font-bold text-red-600">
       {{ title }}
     </h2>
@@ -18,6 +20,7 @@
         {{ feature }}
       </li>
     </ul>
+    <div class="flex flex-1" />
     <p
       class="mt-10 text-center font-[TitilliumWeb-Regular] text-lg font-semibold"
     >
