@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col rounded-2xl bg-white p-6 text-left text-black shadow-lg"
+    class="flex flex-col rounded-2xl bg-white/80 p-6 text-left text-black shadow-lg backdrop-blur-sm"
   >
     <h3 class="text-(--color-custom-red)">
       {{ title }}
@@ -21,7 +21,10 @@
       </li>
     </ul>
     <div class="flex flex-1" />
-    <p class="mt-12 text-center text-sm" v-html="price" />
+    <p
+      class="mt-12 flex items-baseline justify-center text-center text-sm whitespace-break-spaces"
+      v-html="price"
+    />
     <div class="flex justify-center">
       <button
         ref="contactButton"

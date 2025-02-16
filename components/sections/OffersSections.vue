@@ -1,6 +1,6 @@
 <template>
-  <div class="section-color bg-black text-white">
-    <div class="section text-center">
+  <div class="section-color relative overflow-hidden bg-black text-white">
+    <div class="section z-10 text-center">
       <h2>
         Nos <span class="text-(--color-custom-red)">plans</span> pour vous
       </h2>
@@ -11,6 +11,9 @@
         <OfferCard v-for="(plan, index) in plans" :key="index" v-bind="plan" />
       </div>
     </div>
+    <div
+      class="background-image absolute top-50 left-1/2 z-0 h-full w-[400%] -translate-x-1/2 rotate-90 transform bg-[url('/images/Plan-Notre-Dame-De-Paris.png')] bg-contain bg-center bg-no-repeat opacity-25 md:w-[200%] lg:w-[85%] lg:rotate-0"
+    />
   </div>
 </template>
 
