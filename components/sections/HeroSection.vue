@@ -89,10 +89,12 @@
         <div class="absolute right-0 -bottom-15">
           <div class="mb-4 flex flex-row gap-4">
             <div
-              class="h-1 w-16 rounded-full bg-(--color-custom-red) sm:w-24 lg:w-24"
+              ref="secondLine"
+              class="h-1 w-16 origin-right rounded-full bg-(--color-custom-red) sm:w-24 lg:w-24"
             />
             <div
-              class="h-1 w-32 rounded-full bg-(--color-custom-red) sm:w-48 lg:w-56"
+              ref="firstLine"
+              class="h-1 w-32 origin-right rounded-full bg-(--color-custom-red) sm:w-48 lg:w-56"
             />
           </div>
         </div>
@@ -118,6 +120,8 @@ const notreElement = ref<HTMLElement | null>(null);
 const projectsButton = ref<HTMLElement | null>(null);
 const textButtonElement = ref<HTMLElement | null>(null);
 const circleElement = ref<SVGCircleElement | null>(null);
+const firstLine = ref<HTMLElement | null>(null);
+const secondLine = ref<HTMLElement | null>(null);
 
 const { animateTextTurnIn, animateTextTurnOut } =
   useTextTurnAnimations(notreElement);
@@ -129,6 +133,19 @@ const { animateTextSlideIn, animateTextSlideOut } =
 onMounted(() => {
   if (notreElement.value) {
     gsap.from(notreElement.value, { y: -50, duration: 1 });
+  }
+
+  if (firstLine.value && secondLine.value) {
+    gsap.fromTo(
+      firstLine.value,
+      { scaleX: 0 },
+      { scaleX: 1, duration: 1, ease: 'power2.inOut' }
+    );
+    gsap.fromTo(
+      secondLine.value,
+      { scaleX: 0 },
+      { scaleX: 1, duration: 1, ease: 'power2.inOut', delay: 0.9 }
+    );
   }
 });
 </script>
