@@ -32,7 +32,7 @@
         <ProjectCard
           title="Greet Hotel Brest"
           description="Site vitrine & réservation pour un hôtel à Brest."
-          image="/images/debarrasbreton.webp"
+          image="/images/Greet-Hotel-Brest.webp"
           link="https://www.google.com"
         />
       </div>
