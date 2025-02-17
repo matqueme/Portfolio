@@ -8,7 +8,7 @@
       </p>
 
       <div
-        class="grid grid-cols-1 items-stretch justify-center gap-10 pt-16 lg:grid-cols-3"
+        class="grid grid-cols-1 items-stretch justify-center gap-16 pt-16 lg:grid-cols-3 lg:gap-30"
       >
         <div
           v-for="(plan, index) in plans"
