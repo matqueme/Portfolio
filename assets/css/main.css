@@ -1,9 +1,5 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-custom-color-example: #1e1e1e;
-}
-
 @font-face {
   font-family: 'gebuk-regular';
   src: url('@/assets/fonts/gebuk-regular.otf') format('opentype');
@@ -67,7 +63,7 @@
 
 @theme {
   /*colors*/
-  --color-custom-red: #df463e;
+  --color-custom-red: #db362e;
   /* Extra light */
   --font-extra-light: 'TitilliumWeb-ExtraLight';
   --font-extra-light-italic: 'TitilliumWeb-ExtraLightItalic';
@@ -173,8 +169,8 @@
     p {
       font-size: var(--text-base);
     }
-    section {
-      padding: 2rem 2rem;
+    .section {
+      padding: 3rem 1rem;
     }
   }
 
@@ -200,8 +196,8 @@
     p {
       font-size: var(--text-lg);
     }
-    section {
-      padding: 2rem 3rem;
+    .section {
+      padding: 6rem 1rem;
     }
   }
 }
