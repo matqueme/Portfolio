@@ -2,10 +2,10 @@
   <div class="section-color relative overflow-hidden bg-[#F0EBE3] text-black">
     <div class="section z-10 flex flex-col text-center md:flex-row">
       <div class="mr-5 mb-10 w-full text-left md:w-2/3">
-        <h2 class="mb-15">
+        <h2 class="mb-10">
           Qui nous <span class="text-(--color-custom-red)">sommes</span> ?
         </h2>
-        <h6>
+        <p>
           Nous sommes Mathis et Quentin, une équipe passionnée par la création
           de sites web et l'univers digital. Complémentaires dans nos
           compétences, nous mettons tout en œuvre pour transformer vos idées en
@@ -13,7 +13,7 @@
           créativité, technicité et écoute. Nous croyons en une collaboration
           transparente et proche de nos clients, pour des résultats qui
           dépassent les attentes.
-        </h6>
+        </p>
       </div>
 
       <div
@@ -22,7 +22,9 @@
         <div
           class="absolute top-20 left-10 h-24 w-24 rounded-full bg-gray-300 md:top-16 md:left-20"
         ></div>
-        <p class="absolute top-37 left-4 text-black md:top-32 md:left-14">
+        <p
+          class="font-decorative absolute top-37 left-4 text-black md:top-32 md:left-14"
+        >
           Mathis
         </p>
 
@@ -30,7 +32,7 @@
           class="absolute right-10 bottom-20 h-24 w-24 rounded-full bg-gray-300 md:right-16 md:bottom-15"
         ></div>
         <p
-          class="absolute right-26 bottom-22 text-black md:right-32 md:bottom-16"
+          class="font-decorative absolute right-26 bottom-22 text-black md:right-32 md:bottom-16"
         >
           Quentin
         </p>
@@ -56,7 +58,6 @@ import Star from '@/assets/icons/Star.svg';
     transparent 1px
   );
   background-size: 20px 20px;
-  min-height: 200px; /* Empêche le rétrécissement */
 }
 
 @media (max-width: 768px) {
