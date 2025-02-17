@@ -21,7 +21,7 @@
       <div
         class="bg-dots relative flex w-full items-center justify-center text-black md:w-1/3"
       >
-        <div class="relative flex h-52 w-52 md:h-64 md:w-64">
+        <div class="relative z-10 flex h-52 w-52 md:h-64 md:w-64">
           <div class="absolute top-4 left-0 flex flex-col items-center">
             <div
               class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
@@ -44,10 +44,12 @@
             </div>
           </div>
         </div>
-        <Star class="absolute top-4 right-6 h-14 w-14 opacity-25 md:top-10" />
-        <Star
-          class="absolute bottom-6 left-6 h-10 w-10 opacity-25 md:bottom-12 md:left-10"
-        />
+        <div class="absolute bottom-6 left-6 z-0 h-10 w-18 opacity-25">
+          <div class="relative">
+            <Star class="absolute right-0 bottom-0 h-14 w-14" />
+            <Star class="absolute -top-4 left-0 h-8 w-8" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
