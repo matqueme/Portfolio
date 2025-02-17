@@ -1,9 +1,7 @@
 <template>
-  <div
-    class="section-color relative overflow-hidden bg-(--color-custom-beige) text-black"
-  >
-    <div class="section z-10 flex flex-col text-center md:flex-row">
-      <div class="mr-5 mb-10 w-full text-left md:w-2/3">
+  <div class="section-color relative bg-(--color-custom-beige)">
+    <div class="section flex flex-col md:flex-row">
+      <div class="mb-10 w-full text-left md:mb-0 md:w-2/3">
         <h2 class="mb-10">
           Qui nous <span class="text-(--color-custom-red)">sommes</span> ?
         </h2>
@@ -19,7 +17,7 @@
         </p>
       </div>
       <div
-        class="bg-dots relative flex w-full items-center justify-center text-black md:w-1/3"
+        class="bg-dots relative flex w-full items-center justify-center md:w-1/3"
       >
         <div class="relative z-10 flex h-52 w-52 md:h-64 md:w-64">
           <div class="absolute top-4 left-0 flex flex-col items-center">
