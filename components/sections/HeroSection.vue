@@ -21,13 +21,13 @@
           </div>
           univers
         </h1>
-        <h6 ref="subtitle">
+        <p ref="subtitle" class="mt-4 md:mt-6">
           Nous concevons des expériences web où l'élégance intemporelle
           rencontre la précision du digital. Chaque projet est une fusion d’art
           et de technologie, pensée pour marquer les esprits.
-        </h6>
+        </p>
         <div
-          class="mt-8 flex flex-col items-center gap-4 md:items-start lg:flex-row"
+          class="mt-8 flex flex-col items-center gap-4 md:mt-12 md:items-start lg:flex-row"
         >
           <button
             ref="contactButton"
