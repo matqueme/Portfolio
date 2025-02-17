@@ -15,7 +15,7 @@
       />
       <div
         v-if="isHovered"
-        class="text-overlay absolute top-0 z-20 flex h-full w-full items-center justify-center bg-transparent bg-clip-text text-center text-4xl font-black sm:text-7xl md:text-6xl xl:text-7xl 2xl:text-8xl"
+        class="text-overlay absolute top-0 z-10 flex h-full w-full items-center justify-center bg-transparent bg-clip-text text-center text-4xl font-black sm:text-7xl md:text-6xl xl:text-7xl 2xl:text-8xl"
         :style="{ backgroundImage: `url(${image})` }"
       >
         {{ title }}
@@ -31,7 +31,7 @@
     <a :href="link" target="_blank">
       <PhosphorIconArrowUpRight
         size="42"
-        class="absolute top-0 right-0 m-4 cursor-pointer rounded-full bg-black/50 px-2 py-1 text-white hover:bg-black"
+        class="absolute top-0 right-0 z-20 m-4 cursor-pointer rounded-full bg-black/50 px-2 py-1 text-white hover:bg-black"
       />
     </a>
   </div>
