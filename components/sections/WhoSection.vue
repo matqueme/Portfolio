@@ -1,5 +1,5 @@
 <template>
-  <div class="section-color relative overflow-hidden bg-white text-black">
+  <div class="section-color relative overflow-hidden bg-[#F0EBE3] text-black">
     <div class="section z-10 flex flex-col text-center md:flex-row">
       <div class="mr-5 mb-10 w-full text-left md:w-2/3">
         <h2 class="mb-15">
