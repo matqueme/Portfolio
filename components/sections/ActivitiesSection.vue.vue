@@ -18,10 +18,12 @@
           <component
             :is="icons[index]"
             :size="48"
-            :class="index === 1 ? `text-(--color-custom-red)` : `text-black`"
+            :class="
+              index === 1 ? `text-(--color-custom-red) lg:mt-12` : `text-black`
+            "
           />
-          <h5 v-html="plan.title" class="mt-4" />
-          <p class="mt-2 text-center">{{ plan.description }}</p>
+          <h5 v-html="plan.title" class="mt-6" />
+          <p class="mt-4 text-center">{{ plan.description }}</p>
         </div>
       </div>
     </div>
