@@ -13,14 +13,15 @@
         <OfferCard v-for="(plan, index) in plans" :key="index" v-bind="plan" />
       </div>
     </div>
-    <div
-      class="background-image absolute top-50 left-1/2 z-0 h-full w-[400%] -translate-x-1/2 rotate-90 transform bg-[url('/images/Plan-Notre-Dame-De-Paris.png')] bg-contain bg-center bg-no-repeat opacity-25 md:w-[200%] lg:w-[85%] lg:rotate-0"
+    <SvgoPlanNotreDameDeParis
+      class="absolute top-50 left-1/2 z-0 h-full w-[350%] -translate-x-1/2 rotate-90 transform bg-contain bg-center bg-no-repeat opacity-25 sm:w-[280%] md:w-[200%] lg:w-[85%] lg:rotate-0"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import OfferCard from '~/components/OfferCard.vue';
+import OfferCard from '@/components/OfferCard.vue';
+import { SvgoPlanNotreDameDeParis } from '#components';
 
 interface PlanProps {
   title: string;
