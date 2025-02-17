@@ -1,46 +1,52 @@
 <template>
-  <div class="section-color relative overflow-hidden bg-[#F0EBE3] text-black">
+  <div
+    class="section-color relative overflow-hidden bg-(--color-custom-beige) text-black"
+  >
     <div class="section z-10 flex flex-col text-center md:flex-row">
       <div class="mr-5 mb-10 w-full text-left md:w-2/3">
         <h2 class="mb-10">
-          Qui nous <span class="text-(--color-custom-red)">sommes</span> ?
+          Qui nous <span class="text-[--color-custom-red]">sommes</span> ?
         </h2>
         <p>
           Nous sommes Mathis et Quentin, une équipe passionnée par la création
           de sites web et l'univers digital. Complémentaires dans nos
           compétences, nous mettons tout en œuvre pour transformer vos idées en
-          réalité. <br /><br />Ensemble, nous formons un duo dynamique qui allie
-          créativité, technicité et écoute. Nous croyons en une collaboration
-          transparente et proche de nos clients, pour des résultats qui
-          dépassent les attentes.
+          réalité. <br /><br />
+          Ensemble, nous formons un duo dynamique qui allie créativité,
+          technicité et écoute. Nous croyons en une collaboration transparente
+          et proche de nos clients, pour des résultats qui dépassent les
+          attentes.
         </p>
       </div>
-
       <div
-        class="bg-dots relative flex w-full items-center justify-center md:w-1/3"
+        class="bg-dots relative flex w-full items-center justify-center text-black md:w-1/3"
       >
-        <div
-          class="absolute top-20 left-10 h-24 w-24 rounded-full bg-gray-300 md:top-16 md:left-20"
-        ></div>
-        <p
-          class="font-decorative absolute top-37 left-4 text-black md:top-32 md:left-14"
-        >
-          Mathis
-        </p>
+        <div class="relative flex h-52 w-52 md:h-64 md:w-64">
+          <div class="absolute top-4 left-0 flex flex-col items-center">
+            <div
+              class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
+            ></div>
+            <p class="font-decorative absolute bottom-2 -translate-x-full">
+              Mathis
+            </p>
+          </div>
 
-        <div
-          class="absolute right-10 bottom-20 h-24 w-24 rounded-full bg-gray-300 md:right-16 md:bottom-15"
-        ></div>
-        <p
-          class="font-decorative absolute right-26 bottom-22 text-black md:right-32 md:bottom-16"
-        >
-          Quentin
-        </p>
+          <div
+            class="absolute right-0 bottom-0 mb-4 flex flex-col items-center"
+          >
+            <div class="relative">
+              <div
+                class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
+              ></div>
+              <p class="font-decorative absolute bottom-2 -translate-x-1/4">
+                Quentin
+              </p>
+            </div>
+          </div>
+        </div>
+        <Star class="absolute top-4 right-6 h-14 w-14 opacity-25 md:top-10" />
         <Star
-          class="absolute top-4 left-4 h-15 w-15 opacity-25 md:top-12 md:right-10"
-        />
-        <Star
-          class="absolute right-6 bottom-6 h-10 w-10 opacity-25 md:bottom-12 md:left-10"
+          class="absolute bottom-6 left-6 h-10 w-10 opacity-25 md:bottom-12 md:left-10"
         />
       </div>
     </div>
@@ -58,11 +64,5 @@ import Star from '@/assets/icons/Star.svg';
     transparent 1px
   );
   background-size: 20px 20px;
-}
-
-@media (max-width: 768px) {
-  .bg-dots {
-    min-height: 200px;
-  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div
     ref="container"
-    class="bg-dots section-color min-h-screen overflow-hidden bg-[#F0EBE3]"
+    class="bg-dots section-color min-h-screen overflow-hidden bg-(--color-custom-beige)"
   >
     <div class="section relative items-center gap-6 md:flex md:flex-row">
       <div class="w-full text-center md:w-1/2 md:text-left">

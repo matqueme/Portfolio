@@ -68,6 +68,8 @@
 @theme {
   /*colors*/
   --color-custom-red: #df463e;
+  --color-custom-beige: #f0ebe3;
+
   /* Extra light */
   --font-extra-light: 'TitilliumWeb-ExtraLight';
   --font-extra-light-italic: 'TitilliumWeb-ExtraLightItalic';
