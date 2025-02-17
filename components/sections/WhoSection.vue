@@ -5,7 +5,7 @@
     <div class="section z-10 flex flex-col text-center md:flex-row">
       <div class="mr-5 mb-10 w-full text-left md:w-2/3">
         <h2 class="mb-10">
-          Qui nous <span class="text-[--color-custom-red]">sommes</span> ?
+          Qui nous <span class="text-(--color-custom-red)">sommes</span> ?
         </h2>
         <p>
           Nous sommes Mathis et Quentin, une équipe passionnée par la création
