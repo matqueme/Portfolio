@@ -20,11 +20,11 @@
       <div class="mt-8 mb-4 flex flex-row gap-4">
         <div
           ref="firstLine"
-          class="h-1 w-32 origin-left rounded-full bg-(--color-custom-red) sm:w-48 lg:w-56"
+          class="h-1 w-32 origin-left rounded-full bg-(--color-custom-red) opacity-0 sm:w-48 lg:w-56"
         />
         <div
           ref="secondLine"
-          class="h-1 w-16 origin-left rounded-full bg-(--color-custom-red) sm:w-24 lg:w-24"
+          class="h-1 w-16 origin-left rounded-full bg-(--color-custom-red) opacity-0 sm:w-24 lg:w-24"
         />
       </div>
       <div
@@ -60,12 +60,12 @@ const animateLines = () => {
   if (firstLine.value && secondLine.value) {
     gsap.fromTo(
       firstLine.value,
-      { scaleX: 0 },
+      { scaleX: 0, opacity: 1 },
       { scaleX: 1, duration: 1, ease: 'power2.inOut' }
     );
     gsap.fromTo(
       secondLine.value,
-      { scaleX: 0 },
+      { scaleX: 0, opacity: 1 },
       { scaleX: 1, duration: 1, ease: 'power2.inOut', delay: 0.9 }
     );
   }

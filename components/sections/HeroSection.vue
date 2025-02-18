@@ -14,7 +14,7 @@
           >
             <span
               ref="notreElement"
-              class="inline-block text-(--color-custom-red)"
+              class="inline-block text-(--color-custom-red) opacity-0"
             >
               notre
             </span>
@@ -93,11 +93,11 @@
           <div class="mb-4 flex flex-row gap-4">
             <div
               ref="secondLine"
-              class="h-1 w-16 origin-right rounded-full bg-(--color-custom-red) sm:w-24 lg:w-24"
+              class="h-1 w-16 origin-right rounded-full bg-(--color-custom-red) opacity-0 sm:w-24 lg:w-24"
             />
             <div
               ref="firstLine"
-              class="h-1 w-32 origin-right rounded-full bg-(--color-custom-red) sm:w-48 lg:w-56"
+              class="h-1 w-32 origin-right rounded-full bg-(--color-custom-red) opacity-0 sm:w-48 lg:w-56"
             />
           </div>
         </div>
@@ -136,12 +136,12 @@ const animateLines = () => {
   if (firstLine.value && secondLine.value) {
     gsap.fromTo(
       firstLine.value,
-      { scaleX: 0 },
+      { scaleX: 0, opacity: 1 },
       { scaleX: 1, duration: 1, ease: 'power2.inOut' }
     );
     gsap.fromTo(
       secondLine.value,
-      { scaleX: 0 },
+      { scaleX: 0, opacity: 1 },
       { scaleX: 1, duration: 1, ease: 'power2.inOut', delay: 0.9 }
     );
   }
@@ -149,7 +149,18 @@ const animateLines = () => {
 
 const aimateText = () => {
   if (notreElement.value) {
-    gsap.from(notreElement.value, { y: -50, duration: 1 });
+    gsap.fromTo(
+      notreElement.value,
+      {
+        y: -50,
+        duration: 1,
+        opacity: 1,
+        ease: 'power2.out',
+      },
+      {
+        y: 0,
+      }
+    );
   }
 };
 

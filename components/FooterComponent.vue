@@ -13,7 +13,7 @@
       class="absolute top-8 right-8 z-10 flex items-center justify-center gap-4"
     >
       <div
-        class="h-1 w-32 rounded-full bg-(--color-custom-red)"
+        class="h-1 w-0 rounded-full bg-(--color-custom-red)"
         ref="decorativeDash"
       ></div>
       <div class="h-2 w-2 rounded-full bg-(--color-custom-red)"></div>
