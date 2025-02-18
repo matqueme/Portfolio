@@ -105,10 +105,13 @@
 
       <div class="flex w-full justify-end gap-4">
         <button
+          ref="submitButton"
           type="submit"
+          @mouseenter="submitAddAnimation"
+          @mouseleave="submitRemoveAnimation"
           :disabled="isSubmitDisabled"
           :class="[
-            'mt-4 rounded-full bg-(--color-custom-red) px-6 py-2 font-medium text-white hover:bg-(--color-custom-red)/85 focus:ring-2 focus:ring-(--color-custom-red) focus:outline-none',
+            'mt-4 rounded-full bg-(--color-custom-red) px-6 py-2 font-medium text-white hover:cursor-pointer focus:ring-2 focus:ring-(--color-custom-red) focus:outline-none',
             { 'cursor-not-allowed opacity-50': isSubmitDisabled },
           ]"
         >
@@ -122,6 +125,7 @@
 <script setup lang="ts">
 import { Field, ErrorMessage, Form } from 'vee-validate';
 import { ref } from 'vue';
+import { gsap } from 'gsap';
 
 //Interface
 interface ContactFormData {
@@ -150,6 +154,7 @@ const {
 
 const isSubmitDisabled = ref(false);
 const submitButtonText = ref('Envoyer');
+const submitButton = ref<HTMLButtonElement | null>(null);
 let countdown = 5;
 let countdownInterval: ReturnType<typeof setInterval> | null = null;
 
@@ -214,6 +219,20 @@ const onSubmit = async (values: unknown) => {
     isSubmitted.value = false;
     isErrored.value = true;
   }
+};
+
+const submitAddAnimation = () => {
+  gsap.to(submitButton.value, {
+    scale: 1.1,
+    duration: 0.3,
+  });
+};
+
+const submitRemoveAnimation = () => {
+  gsap.to(submitButton.value, {
+    scale: 1,
+    duration: 0.3,
+  });
 };
 </script>
 
