@@ -20,7 +20,11 @@
       <div class="h-2 w-2 rounded-full bg-(--color-custom-red)"></div>
     </div>
     <div class="z-10 flex flex-col items-center gap-4">
-      <p class="font-decorative stroke-bold text-3xl text-(--color-custom-red)">
+      <p
+        class="font-decorative stroke-bold z-10 text-3xl text-(--color-custom-red) hover:cursor-pointer"
+        ref="textDecorative"
+        @click="triggerConfetti"
+      >
         M&Q
       </p>
       <div class="flex flex-col items-center gap-2">
@@ -112,6 +116,7 @@ const linkedin2 = ref<HTMLElement | null>(null);
 const decorativeDash = ref<HTMLElement | null>(null);
 const tooltip1 = ref<HTMLElement | null>(null);
 const tooltip2 = ref<HTMLElement | null>(null);
+const textDecorative = ref<HTMLElement | null>(null);
 
 const animateLink = (event: { target: gsap.TweenTarget }) => {
   gsap.to(event.target, {
@@ -217,6 +222,49 @@ const animateDecorativeDash = () => {
       ease: 'power3.inOut',
     }
   );
+};
+
+const triggerConfetti = () => {
+  const tl = gsap.timeline();
+
+  // Animation du texte avant les confettis
+  tl.to(textDecorative.value, { scale: 1.1, duration: 0.3 }).to(
+    textDecorative.value,
+    { scale: 1, duration: 0.2 }
+  );
+
+  // Obtenir la position de l'élément de texte
+  if (!textDecorative.value) return;
+  const rect = textDecorative.value.getBoundingClientRect();
+
+  const adjustedTop = rect.top + window.scrollY;
+
+  // Animation des confettis
+  const confettiCount = 50;
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement('div');
+    confetti.style.position = 'absolute';
+    confetti.style.width = '5px';
+    confetti.style.height = '10px';
+    confetti.style.backgroundColor = `hsl(${Math.random() * 30}, 100%, 50%)`;
+    confetti.style.top = `${adjustedTop + rect.height / 2}px`;
+    confetti.style.left = `${rect.left + rect.width / 2}px`;
+    confetti.style.zIndex = '0';
+    document.body.appendChild(confetti);
+    const angle = Math.random() * Math.PI * 2;
+    const radius = Math.random() * 200;
+    gsap.to(confetti, {
+      x: Math.cos(angle) * radius,
+      y: Math.sin(angle) * radius,
+      opacity: 0,
+      rotation: Math.random() * 360,
+      duration: 2,
+      zIndex: 0,
+      onComplete: () => {
+        document.body.removeChild(confetti);
+      },
+    });
+  }
 };
 
 onMounted(() => {
