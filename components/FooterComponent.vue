@@ -21,7 +21,7 @@
     </div>
     <div class="z-10 flex flex-col items-center gap-4">
       <p
-        class="font-decorative stroke-bold z-10 text-3xl text-(--color-custom-red) hover:cursor-pointer"
+        class="font-decorative stroke-bold z-10 text-3xl text-(--color-custom-red) select-none hover:cursor-pointer"
         ref="textDecorative"
         @click="triggerConfetti"
       >
@@ -174,7 +174,6 @@ const animateIcon = (event: MouseEvent) => {
   });
 
   const tooltip = target.nextElementSibling as HTMLElement;
-  console.log(tooltip);
   gsap.fromTo(
     tooltip,
     {
@@ -270,7 +269,6 @@ const triggerConfetti = () => {
 onMounted(() => {
   const observer = new IntersectionObserver(
     (entries) => {
-      console.log('object');
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           animateDecorativeDash();
