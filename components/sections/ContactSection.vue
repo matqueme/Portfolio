@@ -2,7 +2,24 @@
   <div class="section-color bg-[#F0EBE3] text-black">
     <div class="section text-center">
       <h2>
-        Créez le <span class="text-(--color-custom-red)">lien</span> avec nous
+        Créez le
+        <span
+          class="relative inline-block text-(--color-custom-red)"
+          @mouseover="handleMouseOver"
+          @mouseleave="handleMouseLeave"
+        >
+          <h2 class="inline-block" ref="textRef">lien</h2>
+          <div
+            ref="iconRef"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-2 opacity-0"
+          >
+            <PhosphorIconLink
+              weight="bold"
+              class="h-8 w-8 sm:h-12 sm:w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16"
+            />
+          </div>
+        </span>
+        avec nous
       </h2>
       <p class="mt-2">
         Que ce soit pour un projet ou une simple question, nous sommes là pour
@@ -36,5 +53,44 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { gsap } from 'gsap';
 import FormComponent from '../FormComponent.vue';
+
+const iconRef = ref<HTMLElement | null>(null);
+const textRef = ref<HTMLElement | null>(null);
+
+const handleMouseOver = () => {
+  gsap.to(iconRef.value, {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    rotate: 360,
+    duration: 0.5,
+    ease: 'back.out',
+  });
+  gsap.to(textRef.value, {
+    opacity: 0,
+    scale: 0.9,
+    duration: 0.5,
+    ease: 'power2.out',
+  });
+};
+
+const handleMouseLeave = () => {
+  gsap.to(iconRef.value, {
+    opacity: 0,
+    scale: 0.8,
+    y: 10,
+    rotate: 0,
+    duration: 0.5,
+    ease: 'power2.out',
+  });
+  gsap.to(textRef.value, {
+    opacity: 1,
+    scale: 1,
+    duration: 0.5,
+    ease: 'power2.out',
+  });
+};
 </script>
