@@ -1,10 +1,18 @@
 <template>
   <div class="section-color relative overflow-hidden bg-[#F0EBE3]">
-    <div class="section z-10 text-left">
+    <div class="section relative z-10 text-left">
       <h2>
         Nos derniers projets
         <span class="text-(--color-custom-red)">réalisés</span>
       </h2>
+      <div
+        class="absolute top-40 right-6 z-0 hidden h-10 w-18 opacity-25 lg:block"
+      >
+        <div class="relative">
+          <SvgoStar class="absolute right-0 bottom-0 h-14 w-14" />
+          <SvgoStar class="absolute -top-4 left-0 h-8 w-8" />
+        </div>
+      </div>
       <p class="mt-2">
         Découvrez les sites que nous avons bâtis avec soin, alliant design
         moderne et performance technique.
