@@ -268,7 +268,23 @@ const triggerConfetti = () => {
 };
 
 onMounted(() => {
-  animateDecorativeDash();
+  const observer = new IntersectionObserver(
+    (entries) => {
+      console.log('object');
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateDecorativeDash();
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    }
+  );
+  if (decorativeDash.value) {
+    observer.observe(decorativeDash.value);
+  }
 });
 </script>
 
