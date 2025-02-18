@@ -25,10 +25,10 @@
         ref="textDecorative"
         @click="triggerConfetti"
       >
-        M&Q
+        Q&M
       </p>
       <div class="flex flex-col items-center gap-2">
-        <p>© 2025 - M&Q - Tous droits réservés</p>
+        <p>© 2025 - Q&M - Tous droits réservés</p>
         <p>
           <a
             href="#"
