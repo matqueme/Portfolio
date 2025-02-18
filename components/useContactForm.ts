@@ -11,7 +11,7 @@ export function useContactForm() {
 
   // Styles
   const classesInput =
-    'w-full text-(--color-custom-red) p-3 mt-2 rounded-lg border border-(--color-custom-red)-300  focus:outline-none focus:ring-2 focus:ring-blue-500';
+    'w-full text-(--color-custom-red) p-3 mt-2 rounded-lg border border-(--color-custom-red)-300  focus:outline-none focus:ring-2 focus:ring-(--color-custom-red)';
   const classesFlexAtStart = 'flex flex-col sm:flex-row gap-4';
   const textError = 'text-red-500 text-sm mt-1';
 

@@ -1,9 +1,11 @@
 <template>
-  <div class="mt-6 flex flex-col items-center gap-8 rounded-2xl p-6 text-left">
+  <div
+    class="mt-6 flex w-full flex-col items-center gap-8 rounded-2xl text-left"
+  >
     <Form
       :validation-schema="validationSchema"
       @submit="onSubmit"
-      class="space-y-6"
+      class="flex w-full max-w-screen-lg flex-col gap-4"
     >
       <div :class="classesFlexAtStart">
         <div class="flex-1">
@@ -13,7 +15,7 @@
             name="lastName"
             id="lastName"
             as="input"
-            placeholder="Doe"
+            placeholder="QUEMENER"
             :class="classesInput"
           />
           <ErrorMessage name="lastName" :class="textError" />
@@ -25,7 +27,7 @@
             name="firstName"
             id="firstName"
             as="input"
-            placeholder="John"
+            placeholder="Quentin"
             :class="classesInput"
           />
           <ErrorMessage name="firstName" :class="textError" />
@@ -40,7 +42,7 @@
             name="phone"
             id="phone"
             as="input"
-            placeholder="06 52 36 65 96"
+            placeholder="07 68 08 16 84"
             :class="classesInput"
           />
           <ErrorMessage name="phone" :class="textError" />
@@ -70,8 +72,7 @@
           id="message"
           name="message"
           as="textarea"
-          placeholder="Décrivez votre besoin ou vos questionnements, indiquez vos disponibilités et votre moyen 
-de contact préféré."
+          placeholder="Décrivez votre besoin ou vos questionnements, indiquez vos disponibilités et votre moyen de contact préféré."
           rows="5"
           style="resize: none"
           :class="classesInput"
@@ -92,15 +93,15 @@ de contact préféré."
         </div>
       </div>
 
-      <p v-if="isSubmitted" class="text-green-500">
+      <p v-if="isSubmitted" class="font-semibold text-green-800">
         Le formulaire a été envoyé !
       </p>
-      <p v-if="isErrored" class="text-red-500">
+      <p v-if="isErrored" class="text-(--color-custom-red)">
         {{ errorMessage1 }}
         <br />
         <span class="italic"> {{ errorMessage }}</span>
       </p>
-      <p v-if="isErrored" class="text-red-500 italic"></p>
+      <p v-if="isErrored" class="text-(--color-custom-red) italic"></p>
 
       <div class="flex w-full justify-end gap-4">
         <button
@@ -188,6 +189,8 @@ const onSubmit = async (values: unknown) => {
         errorMessage1.value =
           "Une erreur est survenue lors de l'envoi du formulaire. Contactez-nous par mail ou par téléphone. Merci.";
       }
+      isSubmitDisabled.value = false;
+      submitButtonText.value = 'Envoyer';
       throw new Error(
         errorData.message || "Erreur lors de l'envoi du formulaire"
       );

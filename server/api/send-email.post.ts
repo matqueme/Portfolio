@@ -127,9 +127,10 @@ const sendMail = async (body: EmailDeliveryDetails, files: Attachment[]) => {
       user: from,
       pass: process.env.NUXT_MAIL_PASSWORD,
     },
-    // tls: {
-    //   rejectUnauthorized: false,
-    // },
+    tls:
+      process.env.NODE_ENV !== 'production'
+        ? { rejectUnauthorized: false }
+        : undefined,
   });
 
   const mailOptions = {

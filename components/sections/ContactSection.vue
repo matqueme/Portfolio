@@ -1,6 +1,6 @@
 <template>
   <div class="section-color bg-[#F0EBE3] text-black">
-    <div class="section z-10 text-center">
+    <div class="section text-center">
       <h2>
         Créez le <span class="text-(--color-custom-red)">lien</span> avec nous
       </h2>
@@ -29,7 +29,7 @@
           agenceQ&M@gmail.com
         </a>
       </div>
-      <p class="font-decorative text-center">OU</p>
+      <p class="font-decorative text-center text-2xl">OU</p>
       <FormComponent />
     </div>
   </div>
