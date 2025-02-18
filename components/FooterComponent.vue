@@ -6,9 +6,19 @@
     @mouseleave="removeBubble"
   >
     <div
-      class="pointer-events-none absolute z-0 h-12 w-12 scale-0 rounded-full bg-[var(--color-custom-red)] blur-xl"
+      class="pointer-events-none absolute z-0 h-12 w-12 scale-0 rounded-full bg-(--color-custom-red) blur-xl"
       ref="bubble"
     ></div>
+    <div
+      class="absolute top-8 right-8 z-10 flex items-center justify-center gap-4"
+    >
+      <div
+        class="h-1 w-32 rounded-full bg-(--color-custom-red)"
+        ref="decorativeDash"
+      ></div>
+      <div class="h-2 w-2 rounded-full bg-(--color-custom-red)"></div>
+      <div class="h-2 w-2 rounded-full bg-(--color-custom-red)"></div>
+    </div>
     <div class="z-10 flex flex-col items-center gap-4">
       <p class="font-decorative stroke-bold text-3xl text-(--color-custom-red)">
         M&Q
@@ -50,6 +60,9 @@
           href="https://www.linkedin.com/in/quentin-simler/"
           target="_blank"
           rel="noopener noreferrer"
+          ref="linkedin1"
+          @mouseover="animateIcon"
+          @mouseleave="resetIcon"
         >
           <PhosphorIconLinkedinLogo class="h-6 w-6" />
         </a>
@@ -57,6 +70,9 @@
           href="https://www.linkedin.com/in/mathis-quemener"
           target="_blank"
           rel="noopener noreferrer"
+          ref="linkedin2"
+          @mouseover="animateIcon"
+          @mouseleave="resetIcon"
         >
           <PhosphorIconLinkedinLogo class="h-6 w-6" />
         </a>
@@ -66,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
 
 const footer = ref<HTMLElement | null>(null);
@@ -74,6 +90,9 @@ const bubble = ref<HTMLElement | null>(null);
 const legalLink = ref<HTMLElement | null>(null);
 const emailLink = ref<HTMLElement | null>(null);
 const phoneLink = ref<HTMLElement | null>(null);
+const linkedin1 = ref<HTMLElement | null>(null);
+const linkedin2 = ref<HTMLElement | null>(null);
+const decorativeDash = ref<HTMLElement | null>(null);
 
 const animateLink = (event: { target: gsap.TweenTarget }) => {
   gsap.to(event.target, {
@@ -119,6 +138,45 @@ const removeBubble = () => {
     ease: 'power2.out',
   });
 };
+
+// Animation des icônes au hover
+const animateIcon = (event: MouseEvent) => {
+  gsap.to(event.currentTarget, {
+    duration: 0.3,
+    scale: 1.2,
+    y: -4,
+    ease: 'power3.out',
+  });
+};
+
+// Réinitialisation de l'animation des icônes
+const resetIcon = (event: MouseEvent) => {
+  gsap.to(event.currentTarget, {
+    duration: 0.3,
+    scale: 1,
+    y: 0,
+    ease: 'power3.out',
+  });
+};
+
+// Animation du tiret décoratif
+const animateDecorativeDash = () => {
+  gsap.fromTo(
+    decorativeDash.value,
+    {
+      width: 0,
+    },
+    {
+      duration: 1,
+      width: '8rem',
+      ease: 'power3.inOut',
+    }
+  );
+};
+
+onMounted(() => {
+  animateDecorativeDash();
+});
 </script>
 
 <style scoped>
