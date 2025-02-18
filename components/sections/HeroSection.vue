@@ -14,7 +14,7 @@
           >
             <span
               ref="notreElement"
-              class="inline-block text-(--color-custom-red)"
+              class="inline-block text-(--color-custom-red) opacity-0"
             >
               notre
             </span>
@@ -74,17 +74,17 @@
             <div class="absolute top-6 left-0 md:top-8 lg:top-10">
               <div class="relative">
                 <!-- Étoile 1 -->
-                <Star
+                <SvgoStar
                   class="absolute top-0 left-0 h-6 w-6 md:h-6 md:w-6 lg:h-8 lg:w-8"
                 />
                 <!-- Étoile 2 -->
-                <Star
+                <SvgoStar
                   class="absolute top-5 left-5 h-4 w-4 md:h-5 md:w-5 lg:top-8 lg:left-6 lg:h-6 lg:w-6"
                 />
               </div>
             </div>
             <!-- Grande étoile -->
-            <Star
+            <SvgoStar
               class="absolute top-0 right-0 h-10 w-10 md:h-12 md:w-12 lg:h-16 lg:w-16"
             />
           </div>
@@ -93,16 +93,16 @@
           <div class="mb-4 flex flex-row gap-4">
             <div
               ref="secondLine"
-              class="h-1 w-16 origin-right rounded-full bg-(--color-custom-red) sm:w-24 lg:w-24"
+              class="h-1 w-16 origin-right rounded-full bg-(--color-custom-red) opacity-0 sm:w-24 lg:w-24"
             />
             <div
               ref="firstLine"
-              class="h-1 w-32 origin-right rounded-full bg-(--color-custom-red) sm:w-48 lg:w-56"
+              class="h-1 w-32 origin-right rounded-full bg-(--color-custom-red) opacity-0 sm:w-48 lg:w-56"
             />
           </div>
         </div>
       </div>
-      <Star
+      <SvgoStar
         class="absolute -bottom-45 left-20 h-16 w-16 opacity-25 md:h-20 md:w-20 lg:h-24 lg:w-24"
       />
     </div>
@@ -117,7 +117,6 @@ import {
   useButtonCircleAnimations,
   useTextSlideAnimations,
 } from '@/composables/animations';
-import Star from '@/assets/icons/Star.svg';
 
 const notreElement = ref<HTMLElement | null>(null);
 const projectsButton = ref<HTMLElement | null>(null);
@@ -133,22 +132,72 @@ const { animateButtonCircleIn, animateButtonCircleOut, moveCircle } =
 const { animateTextSlideIn, animateTextSlideOut } =
   useTextSlideAnimations(textButtonElement);
 
-onMounted(() => {
-  if (notreElement.value) {
-    gsap.from(notreElement.value, { y: -50, duration: 1 });
-  }
-
+const animateLines = () => {
   if (firstLine.value && secondLine.value) {
     gsap.fromTo(
       firstLine.value,
-      { scaleX: 0 },
+      { scaleX: 0, opacity: 1 },
       { scaleX: 1, duration: 1, ease: 'power2.inOut' }
     );
     gsap.fromTo(
       secondLine.value,
-      { scaleX: 0 },
+      { scaleX: 0, opacity: 1 },
       { scaleX: 1, duration: 1, ease: 'power2.inOut', delay: 0.9 }
     );
+  }
+};
+
+const aimateText = () => {
+  if (notreElement.value) {
+    gsap.fromTo(
+      notreElement.value,
+      {
+        y: -50,
+        duration: 1,
+        opacity: 1,
+        ease: 'power2.out',
+      },
+      {
+        y: 0,
+      }
+    );
+  }
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateLines();
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  const observerText = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          aimateText();
+          observerText.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  if (firstLine.value) {
+    observer.observe(firstLine.value);
+  }
+  if (secondLine.value) {
+    observer.observe(secondLine.value);
+  }
+
+  if (notreElement.value) {
+    observerText.observe(notreElement.value);
   }
 });
 </script>

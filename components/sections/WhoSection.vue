@@ -1,6 +1,6 @@
 <template>
   <div class="section-color relative bg-(--color-custom-beige)">
-    <div class="section flex flex-col md:flex-row">
+    <div class="section flex flex-col items-center md:flex-row">
       <div class="mb-10 w-full text-left md:mb-0 md:w-2/3">
         <h2 class="mb-10">
           Qui nous <span class="text-(--color-custom-red)">sommes</span> ?
@@ -44,18 +44,14 @@
         </div>
         <div class="absolute bottom-6 left-6 z-0 h-10 w-18 opacity-25">
           <div class="relative">
-            <Star class="absolute right-0 bottom-0 h-14 w-14" />
-            <Star class="absolute -top-4 left-0 h-8 w-8" />
+            <SvgoStar class="absolute right-0 bottom-0 h-14 w-14" />
+            <SvgoStar class="absolute -top-4 left-0 h-8 w-8" />
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import Star from '@/assets/icons/Star.svg';
-</script>
 
 <style scoped>
 .bg-dots {
