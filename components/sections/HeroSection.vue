@@ -133,11 +133,7 @@ const { animateButtonCircleIn, animateButtonCircleOut, moveCircle } =
 const { animateTextSlideIn, animateTextSlideOut } =
   useTextSlideAnimations(textButtonElement);
 
-onMounted(() => {
-  if (notreElement.value) {
-    gsap.from(notreElement.value, { y: -50, duration: 1 });
-  }
-
+const animateLines = () => {
   if (firstLine.value && secondLine.value) {
     gsap.fromTo(
       firstLine.value,
@@ -149,6 +145,49 @@ onMounted(() => {
       { scaleX: 0 },
       { scaleX: 1, duration: 1, ease: 'power2.inOut', delay: 0.9 }
     );
+  }
+};
+
+const aimateText = () => {
+  if (notreElement.value) {
+    gsap.from(notreElement.value, { y: -50, duration: 1 });
+  }
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateLines();
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  const observerText = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          aimateText();
+          observerText.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  if (firstLine.value) {
+    observer.observe(firstLine.value);
+  }
+  if (secondLine.value) {
+    observer.observe(secondLine.value);
+  }
+
+  if (notreElement.value) {
+    observerText.observe(notreElement.value);
   }
 });
 </script>

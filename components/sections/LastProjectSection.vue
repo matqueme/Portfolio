@@ -48,7 +48,7 @@ import ProjectCard from '../ProjectCard.vue';
 const firstLine = ref<HTMLElement | null>(null);
 const secondLine = ref<HTMLElement | null>(null);
 
-onMounted(() => {
+const animateLines = () => {
   if (firstLine.value && secondLine.value) {
     gsap.fromTo(
       firstLine.value,
@@ -60,6 +60,29 @@ onMounted(() => {
       { scaleX: 0 },
       { scaleX: 1, duration: 1, ease: 'power2.inOut', delay: 0.9 }
     );
+  }
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateLines();
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    }
+  );
+
+  if (firstLine.value) {
+    observer.observe(firstLine.value);
+  }
+  if (secondLine.value) {
+    observer.observe(secondLine.value);
   }
 });
 </script>
