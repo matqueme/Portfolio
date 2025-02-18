@@ -4,8 +4,8 @@
     <ActivitiesSectionVue />
     <WhoSection />
     <OffersSections />
-    <ToolsSection />
     <LastProjectSection />
+    <ToolsSection />
   </div>
 </template>
 
