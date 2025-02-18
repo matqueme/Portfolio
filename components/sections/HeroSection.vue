@@ -74,17 +74,17 @@
             <div class="absolute top-6 left-0 md:top-8 lg:top-10">
               <div class="relative">
                 <!-- Étoile 1 -->
-                <Star
+                <SvgoStar
                   class="absolute top-0 left-0 h-6 w-6 md:h-6 md:w-6 lg:h-8 lg:w-8"
                 />
                 <!-- Étoile 2 -->
-                <Star
+                <SvgoStar
                   class="absolute top-5 left-5 h-4 w-4 md:h-5 md:w-5 lg:top-8 lg:left-6 lg:h-6 lg:w-6"
                 />
               </div>
             </div>
             <!-- Grande étoile -->
-            <Star
+            <SvgoStar
               class="absolute top-0 right-0 h-10 w-10 md:h-12 md:w-12 lg:h-16 lg:w-16"
             />
           </div>
@@ -102,7 +102,7 @@
           </div>
         </div>
       </div>
-      <Star
+      <SvgoStar
         class="absolute -bottom-45 left-20 h-16 w-16 opacity-25 md:h-20 md:w-20 lg:h-24 lg:w-24"
       />
     </div>
@@ -117,7 +117,6 @@ import {
   useButtonCircleAnimations,
   useTextSlideAnimations,
 } from '@/composables/animations';
-import Star from '@/assets/icons/Star.svg';
 
 const notreElement = ref<HTMLElement | null>(null);
 const projectsButton = ref<HTMLElement | null>(null);

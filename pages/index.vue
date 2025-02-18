@@ -5,6 +5,7 @@
     <WhoSection />
     <OffersSections />
     <LastProjectSection />
+    <ToolsSection />
   </div>
 </template>
 
@@ -14,4 +15,5 @@ import ActivitiesSectionVue from '@/components/sections/ActivitiesSection.vue.vu
 import OffersSections from '@/components/sections/OffersSections.vue';
 import WhoSection from '~/components/sections/WhoSection.vue';
 import LastProjectSection from '@/components/sections/LastProjectSection.vue';
+import ToolsSection from '~/components/sections/ToolsSection.vue';
 </script>
