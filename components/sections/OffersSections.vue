@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
 import OfferCard from '@/components/OfferCard.vue';
-import { SvgoPlanNotreDameDeParis } from '#components';
 
 interface PlanProps {
   title: string;

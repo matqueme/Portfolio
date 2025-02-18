@@ -10,12 +10,12 @@
       <div
         class="relative grid grid-cols-1 items-stretch justify-center gap-16 py-16 lg:grid-cols-3 lg:gap-30"
       >
-        <Corner
+        <SvgoCorner
           class="stroke absolute top-8 left-0 h-18 w-18 stroke-black stroke-6"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
-        <Corner
+        <SvgoCorner
           class="absolute right-0 bottom-0 h-18 w-18 rotate-180 stroke-(--color-custom-red) stroke-6"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -44,7 +44,6 @@
 // @ts-expect-error - Ignore Because import in nuxt-phosphor-icon
 import { PhDeviceMobile, PhPalette, PhMegaphone } from '@phosphor-icons/vue';
 const icons = [PhDeviceMobile, PhPalette, PhMegaphone];
-import Corner from '@/assets/icons/Corner.svg';
 
 interface PlanProps {
   title: string;

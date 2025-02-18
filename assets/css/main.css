@@ -96,10 +96,12 @@
   h2 {
     font-size: var(--text-3xl);
     font-family: var(--font-decorative);
+    line-height: 1;
   }
   h3 {
     font-size: var(--text-2xl);
     font-family: var(--font-decorative);
+    line-height: 1;
   }
   h4 {
     font-size: var(--text-xl);
