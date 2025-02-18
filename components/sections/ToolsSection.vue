@@ -16,7 +16,7 @@
         class="bg-dots relative flex min-h-82 w-full items-center justify-center md:w-1/2"
       >
         <div class="relative h-full w-full">
-          <SvgoToolsLogoNode class="absolute top-10 left-20 h-16 w-16" />
+          <SvgoToolsLogoPhotoshop class="absolute top-10 left-20 h-16 w-16" />
           <SvgoToolsLogoNuxt class="absolute top-1/3 right-12 h-16 w-16" />
           <SvgoToolsLogoTailwind class="absolute bottom-5 left-15 h-16 w-16" />
           <SvgoToolsLogoFirebase
@@ -27,6 +27,9 @@
           />
           <SvgoToolsLogoVercel
             class="absolute bottom-15 left-55 hidden h-16 w-16 sm:block md:hidden lg:block"
+          />
+          <SvgoToolsLogoNode
+            class="absolute top-15 right-45 hidden h-16 w-16 sm:block md:hidden lg:block"
           />
         </div>
         <div class="absolute top-0 -left-5 z-0 h-14 w-14 opacity-25">
