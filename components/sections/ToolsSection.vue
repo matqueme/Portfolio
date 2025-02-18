@@ -13,25 +13,24 @@
         </p>
       </div>
       <div
-        class="bg-dots relative flex w-full items-center justify-center md:w-1/2"
+        class="bg-dots relative flex min-h-82 w-full items-center justify-center md:w-1/2"
       >
         <div class="relative h-full w-full">
-          <SvgoToolsLogoNode class="absolute top-10 left-20 h-12 w-12" />
-          <SvgoToolsLogoNuxt class="absolute top-1/3 right-15 h-12 w-12" />
-          <SvgoToolsLogoTailwind class="absolute bottom-20 left-10 h-12 w-12" />
+          <SvgoToolsLogoNode class="absolute top-10 left-20 h-16 w-16" />
+          <SvgoToolsLogoNuxt class="absolute top-1/3 right-12 h-16 w-16" />
+          <SvgoToolsLogoTailwind class="absolute bottom-5 left-15 h-16 w-16" />
           <SvgoToolsLogoFirebase
-            class="absolute right-25 bottom-10 h-12 w-12"
+            class="absolute right-25 bottom-10 h-16 w-16"
           />
           <SvgoToolsLogoFigma
-            class="absolute top-1/2 left-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 transform"
+            class="absolute top-1/2 left-1/2 hidden h-16 w-16 sm:block"
           />
-          <SvgoToolsLogoVercel class="absolute right-40 bottom-40 h-12 w-12" />
+          <SvgoToolsLogoVercel
+            class="absolute bottom-15 left-55 hidden h-16 w-16 sm:block md:hidden lg:block"
+          />
         </div>
-        <div class="absolute bottom-6 left-6 z-0 h-10 w-18 opacity-25">
-          <div class="relative">
-            <SvgoStar class="absolute right-0 bottom-0 h-14 w-14" />
-            <SvgoStar class="absolute -top-4 left-0 h-8 w-8" />
-          </div>
+        <div class="absolute top-0 -left-5 z-0 h-14 w-14 opacity-25">
+          <SvgoStar class="h-14 w-14" />
         </div>
       </div>
     </div>
