@@ -41,6 +41,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-expect-error - Ignore Because import in nuxt-phosphor-icon
 import { PhDeviceMobile, PhPalette, PhMegaphone } from '@phosphor-icons/vue';
 const icons = [PhDeviceMobile, PhPalette, PhMegaphone];
 import Corner from '@/assets/icons/Corner.svg';
