@@ -56,26 +56,43 @@
         </p>
       </div>
       <div class="flex justify-center gap-4">
-        <a
-          href="https://www.linkedin.com/in/quentin-simler/"
-          target="_blank"
-          rel="noopener noreferrer"
-          ref="linkedin1"
-          @mouseover="animateIcon"
-          @mouseleave="resetIcon"
-        >
-          <PhosphorIconLinkedinLogo class="h-6 w-6" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/mathis-quemener"
-          target="_blank"
-          rel="noopener noreferrer"
-          ref="linkedin2"
-          @mouseover="animateIcon"
-          @mouseleave="resetIcon"
-        >
-          <PhosphorIconLinkedinLogo class="h-6 w-6" />
-        </a>
+        <div class="relative flex">
+          <a
+            href="https://www.linkedin.com/in/quentin-simler/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ref="linkedin1"
+            @mouseenter="animateIcon"
+            @mouseleave="resetIcon"
+          >
+            <PhosphorIconLinkedinLogo class="h-6 w-6" />
+          </a>
+          <div
+            ref="tooltip1"
+            class="absolute bottom-8 left-1/2 mb-2 w-max -translate-x-1/2 scale-90 transform rounded-lg bg-black px-2 py-1 text-xs text-white opacity-0 shadow-lg"
+          >
+            LinkedIn de Quentin Simler
+          </div>
+        </div>
+
+        <div class="relative flex">
+          <a
+            href="https://www.linkedin.com/in/mathis-quemener"
+            target="_blank"
+            rel="noopener noreferrer"
+            ref="linkedin2"
+            @mouseenter="animateIcon"
+            @mouseleave="resetIcon"
+          >
+            <PhosphorIconLinkedinLogo class="h-6 w-6" />
+          </a>
+          <div
+            ref="tooltip2"
+            class="absolute bottom-8 left-1/2 mb-2 w-max -translate-x-1/2 scale-100 transform rounded-lg bg-black px-2 py-1 text-xs text-white opacity-0 shadow-lg"
+          >
+            LinkedIn de Mathis Quemener
+          </div>
+        </div>
       </div>
     </div>
   </footer>
@@ -93,6 +110,8 @@ const phoneLink = ref<HTMLElement | null>(null);
 const linkedin1 = ref<HTMLElement | null>(null);
 const linkedin2 = ref<HTMLElement | null>(null);
 const decorativeDash = ref<HTMLElement | null>(null);
+const tooltip1 = ref<HTMLElement | null>(null);
+const tooltip2 = ref<HTMLElement | null>(null);
 
 const animateLink = (event: { target: gsap.TweenTarget }) => {
   gsap.to(event.target, {
@@ -141,20 +160,46 @@ const removeBubble = () => {
 
 // Animation des icônes au hover
 const animateIcon = (event: MouseEvent) => {
-  gsap.to(event.currentTarget, {
+  const target = event.currentTarget as HTMLElement;
+  gsap.to(target, {
     duration: 0.3,
     scale: 1.2,
     y: -4,
     ease: 'power3.out',
   });
+
+  const tooltip = target.nextElementSibling as HTMLElement;
+  console.log(tooltip);
+  gsap.fromTo(
+    tooltip,
+    {
+      y: 10,
+      opacity: 0,
+    },
+    {
+      duration: 0.3,
+      y: 0,
+      opacity: 1,
+      ease: 'power3.out',
+    }
+  );
 };
 
 // Réinitialisation de l'animation des icônes
 const resetIcon = (event: MouseEvent) => {
-  gsap.to(event.currentTarget, {
+  const target = event.currentTarget as HTMLElement;
+  gsap.to(target, {
     duration: 0.3,
     scale: 1,
     y: 0,
+    ease: 'power3.out',
+  });
+
+  const tooltip = target.nextElementSibling as HTMLElement;
+  gsap.to(tooltip, {
+    duration: 0.3,
+    y: 10,
+    opacity: 0,
     ease: 'power3.out',
   });
 };
