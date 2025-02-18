@@ -8,9 +8,16 @@
         Construisons ensemble les fondations de votre présence en ligne
       </p>
       <div
+        ref="cardsContainer"
         class="grid grid-cols-1 items-stretch justify-center gap-10 pt-16 lg:grid-cols-3"
       >
-        <OfferCard v-for="(plan, index) in plans" :key="index" v-bind="plan" />
+        <OfferCard
+          v-for="(plan, index) in plans"
+          :key="index"
+          v-bind="plan"
+          class="opacity-0"
+          :class="{ 'md:scale-105': index === 1 }"
+        />
       </div>
     </div>
     <SvgoPlanNotreDameDeParis
@@ -20,6 +27,8 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
+import gsap from 'gsap';
 import OfferCard from '@/components/OfferCard.vue';
 
 interface PlanProps {
@@ -80,4 +89,39 @@ const plans: PlanProps[] = [
       '<span class="text-xl font-semibold">Sur devis</span> (Devis gratuit)',
   },
 ];
+
+const cardsContainer = ref<HTMLElement | null>(null);
+
+onMounted(() => {
+  if (!cardsContainer.value) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          gsap.fromTo(
+            entry.target.children,
+            { opacity: 0, y: 20 },
+            {
+              opacity: 1,
+              y: 0,
+              stagger: 0.3,
+              duration: 0.6,
+              ease: 'power2.out',
+            }
+          );
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  observer.observe(cardsContainer.value);
+
+  // Cleanup observer on unmount
+  return () => {
+    observer.disconnect();
+  };
+});
 </script>
