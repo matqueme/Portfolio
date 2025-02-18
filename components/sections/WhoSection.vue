@@ -1,9 +1,17 @@
 <template>
   <div class="section-color relative bg-(--color-custom-beige)">
     <div class="section flex flex-col items-center md:flex-row">
-      <div class="mb-10 w-full text-left md:mb-0 md:w-2/3">
+      <div class="mb-10 w-full pr-10 text-left md:mb-0 md:w-2/3">
         <h2 class="mb-10">
-          Qui nous <span class="text-(--color-custom-red)">sommes</span> ?
+          Qui nous
+          <div @mouseenter="animateText3DRotate" class="inline-block">
+            <span
+              ref="notreElement"
+              class="inline-block text-(--color-custom-red)"
+              >sommes</span
+            >
+          </div>
+          ?
         </h2>
         <p>
           Nous sommes Mathis et Quentin, une équipe passionnée par la création
@@ -22,7 +30,7 @@
         <div class="relative z-10 flex h-52 w-52 md:h-64 md:w-64">
           <div class="absolute top-4 left-0 flex flex-col items-center">
             <div
-              class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
+              class="h-24 w-24 transform rounded-full bg-gray-300 transition-transform duration-300 hover:scale-115 md:h-28 md:w-28"
             ></div>
             <p class="font-decorative absolute bottom-2 -translate-x-full">
               Mathis
@@ -34,7 +42,7 @@
           >
             <div class="relative">
               <div
-                class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
+                class="h-24 w-24 transform rounded-full bg-gray-300 transition-transform duration-300 hover:scale-115 md:h-28 md:w-28"
               ></div>
               <p class="font-decorative absolute bottom-2 -translate-x-1/4">
                 Quentin
@@ -53,12 +61,29 @@
   </div>
 </template>
 
-<style scoped>
-.bg-dots {
-  background-image: radial-gradient(
-    rgba(223, 70, 62, 0.15) 3px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
-}
-</style>
+<script setup lang="ts">
+import { ref } from 'vue';
+import gsap from 'gsap';
+
+const notreElement = ref<HTMLElement | null>(null);
+
+const animateText3DRotate = () => {
+  if (notreElement.value) {
+    // Réinitialiser les rotations à 0
+    gsap.set(notreElement.value, {
+      rotateX: 0,
+      rotateY: 0,
+      rotateZ: 0,
+    });
+
+    // Lancer l'animation
+    gsap.to(notreElement.value, {
+      rotateX: 360,
+      rotateY: 360,
+      rotateZ: 360,
+      duration: 2,
+      ease: 'power2.inOut',
+    });
+  }
+};
+</script>
