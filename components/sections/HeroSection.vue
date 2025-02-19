@@ -45,7 +45,7 @@
             @mouseenter="animateButtonCircleIn"
             @mouseleave="animateButtonCircleOut"
             @mousemove="moveCircle"
-            @click="scrollToSection('contactSection')"
+            @click="scrollToSection('projectsSection')"
           >
             <span class="z-40 inline-block"> Découvrez nos projets </span>
             <PhosphorIconArrowCircleRight

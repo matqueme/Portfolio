@@ -1,7 +1,7 @@
 <template>
   <div
     class="section-color relative overflow-hidden bg-[#F0EBE3]"
-    id="contactSection"
+    id="projectsSection"
   >
     <div class="section relative z-10 text-left">
       <h2>

@@ -1,5 +1,8 @@
 <template>
-  <div class="section-color relative overflow-hidden bg-black text-white">
+  <div
+    class="section-color relative overflow-hidden bg-black text-white"
+    id="offersSection"
+  >
     <div class="section z-10 text-center">
       <h2>
         Nos
