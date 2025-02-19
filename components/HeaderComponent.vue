@@ -75,6 +75,11 @@ const scrollToSection = (sectionId: string) => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
+
+  if (window.scrollY > 0) {
+    gsap.to('.fixed', { y: 0, duration: 0.5 });
+    showNav.value = true;
+  }
 });
 
 onUnmounted(() => {
