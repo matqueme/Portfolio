@@ -16,12 +16,12 @@
       </div>
       <div class="flex items-center gap-4">
         <a
-          class="font-bold text-(--color-custom-red) hover:cursor-pointer hover:text-black"
+          class="hidden font-bold text-(--color-custom-red) hover:cursor-pointer hover:text-black sm:block"
           @click="scrollToSection('projectsSection')"
           >Projets</a
         >
         <a
-          class="font-bold text-(--color-custom-red) hover:cursor-pointer hover:text-black"
+          class="hidden font-bold text-(--color-custom-red) hover:cursor-pointer hover:text-black sm:block"
           @click="scrollToSection('offersSection')"
           >Nos offres</a
         >
