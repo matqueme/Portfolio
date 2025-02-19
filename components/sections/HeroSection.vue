@@ -34,6 +34,7 @@
             class="overflow-hidden rounded-full bg-(--color-custom-red) px-6 py-3 text-xl font-bold text-white hover:cursor-pointer"
             @mouseenter="animateTextSlideIn"
             @mouseleave="animateTextSlideOut"
+            @click="scrollToSection('formComponent')"
           >
             <span ref="textButtonElement" class="flex"> Contactez-nous </span>
           </button>
@@ -44,6 +45,7 @@
             @mouseenter="animateButtonCircleIn"
             @mouseleave="animateButtonCircleOut"
             @mousemove="moveCircle"
+            @click="scrollToSection('projectsSection')"
           >
             <span class="z-40 inline-block"> Découvrez nos projets </span>
             <PhosphorIconArrowCircleRight
@@ -131,6 +133,13 @@ const { animateButtonCircleIn, animateButtonCircleOut, moveCircle } =
   useButtonCircleAnimations(projectsButton, circleElement);
 const { animateTextSlideIn, animateTextSlideOut } =
   useTextSlideAnimations(textButtonElement);
+
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 const animateLines = () => {
   if (firstLine.value && secondLine.value) {

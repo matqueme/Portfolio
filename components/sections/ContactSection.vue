@@ -1,5 +1,5 @@
 <template>
-  <div class="section-color bg-[#F0EBE3] text-black">
+  <div class="section-color bg-[#F0EBE3] text-black" id="formComponent">
     <div class="section text-center">
       <h2>
         Créez le

@@ -54,13 +54,13 @@ const plans: PlanProps[] = [
   {
     title: 'Création de site web & SEO',
     description:
-      'Conception de sites web modernes, rapides et optimisés pour le référencement. J’assure une structure technique propre, une navigation fluide et un contenu optimisé pour maximiser votre visibilité sur Google.',
+      'Conception de sites web modernes, rapides et optimisés pour le référencement. Nous assurons une structure technique propre, une navigation fluide et un contenu optimisé pour maximiser votre visibilité sur Google.',
   },
   {
     title:
       ' Identité visuelle & expérience utilisateur (<span class="text-(--color-custom-red)">UI/UX</span>)',
     description:
-      'Un design sur mesure qui reflète votre image de marque avec des couleurs, typographies et mises en page adaptées. J’accorde une attention particulière à l’ergonomie pour garantir une expérience utilisateur intuitive et engageante.',
+      'Un design sur mesure qui reflète votre image de marque avec des couleurs, typographies et mises en page adaptées. Nous accordons une attention particulière à l’ergonomie pour garantir une expérience utilisateur intuitive et engageante.',
   },
   {
     title: 'Stratégie digitale & communication',

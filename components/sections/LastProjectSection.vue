@@ -1,5 +1,8 @@
 <template>
-  <div class="section-color relative overflow-hidden bg-[#F0EBE3]">
+  <div
+    class="section-color relative overflow-hidden bg-[#F0EBE3]"
+    id="projectsSection"
+  >
     <div class="section relative z-10 text-left">
       <h2>
         Nos derniers projets
