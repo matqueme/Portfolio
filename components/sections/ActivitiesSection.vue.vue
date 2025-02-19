@@ -11,15 +11,17 @@
         class="relative grid grid-cols-1 items-stretch justify-center gap-16 py-16 lg:grid-cols-3 lg:gap-30"
       >
         <SvgoCorner
-          class="stroke absolute top-8 left-0 h-18 w-18 stroke-black stroke-6"
+          class="stroke-top-left absolute top-8 left-0 h-18 w-18 stroke-black stroke-6"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
+
         <SvgoCorner
-          class="absolute right-0 bottom-0 h-18 w-18 rotate-180 stroke-(--color-custom-red) stroke-6"
+          class="stroke-bottom-right absolute right-0 bottom-0 h-18 w-18 rotate-180 stroke-(--color-custom-red) stroke-6"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
+
         <div
           v-for="(plan, index) in plans"
           :key="index"
@@ -43,6 +45,12 @@
 <script setup lang="ts">
 // @ts-expect-error - Ignore Because import in nuxt-phosphor-icon
 import { PhDeviceMobile, PhPalette, PhMegaphone } from '@phosphor-icons/vue';
+import { onMounted } from 'vue';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const icons = [PhDeviceMobile, PhPalette, PhMegaphone];
 
 interface PlanProps {
@@ -68,4 +76,43 @@ const plans: PlanProps[] = [
       'Accompagnement dans la mise en place d’une présence en ligne efficace : création de contenus impactants, conseils en communication digitale et intégration des outils essentiels (réseaux sociaux, call-to-action, formulaires…).',
   },
 ];
+
+onMounted(() => {
+  gsap.fromTo(
+    '.stroke-top-left',
+    { x: -50, y: -50, opacity: 0 },
+    {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.section',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play reverse play reverse',
+      },
+    }
+  );
+
+  // Animation pour le coin en bas à droite
+  gsap.fromTo(
+    '.stroke-bottom-right',
+    { x: 50, y: 50, opacity: 0 },
+    {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.section',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play reverse play reverse',
+      },
+    }
+  );
+});
 </script>
