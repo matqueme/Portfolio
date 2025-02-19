@@ -30,18 +30,18 @@
         <div class="relative z-10 flex h-52 w-52 md:h-64 md:w-64">
           <div class="absolute top-4 left-0 flex flex-col items-center">
             <div
-              @mouseenter="animateCircle(quentinCircle)"
-              @mouseleave="resetCircle(quentinCircle)"
+              @mouseenter="animateCircle(mathisCircle)"
+              @mouseleave="resetCircle(mathisCircle)"
               class="inline-block"
             >
               <div
-                ref="quentinCircle"
+                ref="mathisCircle"
                 class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
               ></div>
             </div>
 
             <p class="font-decorative absolute bottom-2 -translate-x-full">
-              Quentin
+              Mathis
             </p>
           </div>
 
@@ -50,17 +50,17 @@
           >
             <div class="relative">
               <div
-                @mouseenter="animateCircle(mathisCircle)"
-                @mouseleave="resetCircle(mathisCircle)"
+                @mouseenter="animateCircle(quentinCircle)"
+                @mouseleave="resetCircle(quentinCircle)"
                 class="inline-block"
               >
                 <div
-                  ref="mathisCircle"
+                  ref="quentinCircle"
                   class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
                 ></div>
               </div>
               <p class="font-decorative absolute bottom-2 -translate-x-1/4">
-                Mathis
+                Quentin
               </p>
             </div>
           </div>
