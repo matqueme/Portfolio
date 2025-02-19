@@ -55,7 +55,7 @@
             ref="phoneLink"
             @mouseover="animateLink"
             @mouseleave="resetLink"
-            >+33 1 23 45 67 89</a
+            >07 68 08 16 84</a
           >
         </p>
       </div>
