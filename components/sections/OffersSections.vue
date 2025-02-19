@@ -1,8 +1,19 @@
 <template>
-  <div class="section-color relative overflow-hidden bg-black text-white">
+  <div
+    class="section-color relative overflow-hidden bg-black text-white"
+    id="offersSection"
+  >
     <div class="section z-10 text-center">
       <h2>
-        Nos <span class="text-(--color-custom-red)">plans</span> pour vous
+        Nos
+        <div @mouseenter="animateTextExplode" class="inline-block">
+          <span
+            ref="notreElement"
+            class="inline-block text-(--color-custom-red)"
+            >plans</span
+          >
+        </div>
+        pour vous
       </h2>
       <p class="mt-2">
         Construisons ensemble les fondations de votre présence en ligne
@@ -30,6 +41,8 @@
 import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
 import OfferCard from '@/components/OfferCard.vue';
+
+const notreElement = ref<HTMLElement | null>(null);
 
 interface PlanProps {
   title: string;
@@ -119,9 +132,43 @@ onMounted(() => {
 
   observer.observe(cardsContainer.value);
 
-  // Cleanup observer on unmount
   return () => {
     observer.disconnect();
   };
 });
+
+const animateTextExplode = () => {
+  if (notreElement.value) {
+    const letters = notreElement.value?.textContent?.split('') || [];
+    notreElement.value.innerHTML = letters
+      .map(
+        (letter) =>
+          `<span class="letter" style="display: inline-block;">${letter}</span>`
+      )
+      .join('');
+
+    gsap.to('.letter', {
+      x: () => gsap.utils.random(-50, 50),
+      y: () => gsap.utils.random(-50, 50),
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: 'power2.out',
+      onComplete: () => {
+        gsap.to('.letter', {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          onComplete: () => {
+            if (notreElement.value) {
+              notreElement.value.innerHTML = letters.join('');
+            }
+          },
+        });
+      },
+    });
+  }
+};
 </script>
