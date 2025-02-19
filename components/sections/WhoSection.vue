@@ -30,11 +30,18 @@
         <div class="relative z-10 flex h-52 w-52 md:h-64 md:w-64">
           <div class="absolute top-4 left-0 flex flex-col items-center">
             <div
-              ref="mathisCircle"
-              class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
-            ></div>
+              @mouseenter="animateCircle(quentinCircle)"
+              @mouseleave="resetCircle(quentinCircle)"
+              class="inline-block"
+            >
+              <div
+                ref="quentinCircle"
+                class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
+              ></div>
+            </div>
+
             <p class="font-decorative absolute bottom-2 -translate-x-full">
-              Mathis
+              Quentin
             </p>
           </div>
 
@@ -43,11 +50,17 @@
           >
             <div class="relative">
               <div
-                ref="quentinCircle"
-                class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
-              ></div>
+                @mouseenter="animateCircle(mathisCircle)"
+                @mouseleave="resetCircle(mathisCircle)"
+                class="inline-block"
+              >
+                <div
+                  ref="mathisCircle"
+                  class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
+                ></div>
+              </div>
               <p class="font-decorative absolute bottom-2 -translate-x-1/4">
-                Quentin
+                Mathis
               </p>
             </div>
           </div>
@@ -64,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import gsap from 'gsap';
 
 const notreElement = ref<HTMLElement | null>(null);
@@ -89,9 +102,9 @@ const animateText3DRotate = () => {
   }
 };
 
-const animateCircle = (element: HTMLElement | null) => {
-  if (element) {
-    gsap.to(element, {
+const animateCircle = (circle: HTMLElement | null) => {
+  if (circle) {
+    gsap.to(circle, {
       scale: 1.15,
       duration: 0.3,
       ease: 'power2.inOut',
@@ -99,39 +112,15 @@ const animateCircle = (element: HTMLElement | null) => {
   }
 };
 
-const resetCircle = (element: HTMLElement | null) => {
-  if (element) {
-    gsap.to(element, {
+const resetCircle = (circle: HTMLElement | null) => {
+  if (circle) {
+    gsap.to(circle, {
       scale: 1,
       duration: 0.3,
       ease: 'power2.inOut',
     });
   }
 };
-
-onMounted(() => {
-  if (mathisCircle.value) {
-    mathisCircle.value.addEventListener(
-      'mouseenter',
-      () => animateCircle(mathisCircle.value) // Appel de animateCircle au survol
-    );
-    mathisCircle.value.addEventListener(
-      'mouseleave',
-      () => resetCircle(mathisCircle.value) // Appel de resetCircle quand la souris quitte
-    );
-  }
-
-  if (quentinCircle.value) {
-    quentinCircle.value.addEventListener(
-      'mouseenter',
-      () => animateCircle(quentinCircle.value) // Appel de animateCircle au survol
-    );
-    quentinCircle.value.addEventListener(
-      'mouseleave',
-      () => resetCircle(quentinCircle.value) // Appel de resetCircle quand la souris quitte
-    );
-  }
-});
 </script>
 
 <style scoped>
