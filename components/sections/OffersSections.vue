@@ -129,7 +129,6 @@ onMounted(() => {
 
   observer.observe(cardsContainer.value);
 
-  // Cleanup observer on unmount
   return () => {
     observer.disconnect();
   };
@@ -146,11 +145,11 @@ const animateTextExplode = () => {
       .join('');
 
     gsap.to('.letter', {
-      x: () => gsap.utils.random(-50, 50), // Déplacement aléatoire sur l'axe X
-      y: () => gsap.utils.random(-50, 50), // Déplacement aléatoire sur l'axe Y
-      opacity: 0, // Fait disparaître les lettres
+      x: () => gsap.utils.random(-50, 50),
+      y: () => gsap.utils.random(-50, 50),
+      opacity: 0,
       duration: 0.5,
-      stagger: 0.1, // Délai entre chaque lettre
+      stagger: 0.1,
       ease: 'power2.out',
       onComplete: () => {
         gsap.to('.letter', {
@@ -161,7 +160,7 @@ const animateTextExplode = () => {
           stagger: 0.1,
           onComplete: () => {
             if (notreElement.value) {
-              notreElement.value.innerHTML = letters.join(''); // Réinitialise le texte
+              notreElement.value.innerHTML = letters.join('');
             }
           },
         });

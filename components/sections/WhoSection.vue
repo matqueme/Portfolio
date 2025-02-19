@@ -1,7 +1,7 @@
 <template>
   <div class="section-color relative bg-(--color-custom-beige)">
-    <div class="section flex flex-col items-center md:flex-row">
-      <div class="mb-10 w-full pr-10 text-left md:mb-0 md:w-2/3">
+    <div class="section flex flex-col items-center gap-10 md:flex-row">
+      <div class="w-full text-left md:w-2/3">
         <h2 class="mb-10">
           Qui nous
           <div @mouseenter="animateText3DRotate" class="inline-block">
@@ -30,7 +30,8 @@
         <div class="relative z-10 flex h-52 w-52 md:h-64 md:w-64">
           <div class="absolute top-4 left-0 flex flex-col items-center">
             <div
-              class="h-24 w-24 transform rounded-full bg-gray-300 transition-transform duration-300 hover:scale-115 md:h-28 md:w-28"
+              ref="mathisCircle"
+              class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
             ></div>
             <p class="font-decorative absolute bottom-2 -translate-x-full">
               Mathis
@@ -42,7 +43,8 @@
           >
             <div class="relative">
               <div
-                class="h-24 w-24 transform rounded-full bg-gray-300 transition-transform duration-300 hover:scale-115 md:h-28 md:w-28"
+                ref="quentinCircle"
+                class="h-24 w-24 rounded-full bg-gray-300 md:h-28 md:w-28"
               ></div>
               <p class="font-decorative absolute bottom-2 -translate-x-1/4">
                 Quentin
@@ -62,21 +64,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
 
 const notreElement = ref<HTMLElement | null>(null);
+const mathisCircle = ref<HTMLElement | null>(null);
+const quentinCircle = ref<HTMLElement | null>(null);
 
 const animateText3DRotate = () => {
   if (notreElement.value) {
-    // Réinitialiser les rotations à 0
     gsap.set(notreElement.value, {
       rotateX: 0,
       rotateY: 0,
       rotateZ: 0,
     });
 
-    // Lancer l'animation
     gsap.to(notreElement.value, {
       rotateX: 360,
       rotateY: 360,
@@ -86,4 +88,58 @@ const animateText3DRotate = () => {
     });
   }
 };
+
+const animateCircle = (element: HTMLElement | null) => {
+  if (element) {
+    gsap.to(element, {
+      scale: 1.15,
+      duration: 0.3,
+      ease: 'power2.inOut',
+    });
+  }
+};
+
+const resetCircle = (element: HTMLElement | null) => {
+  if (element) {
+    gsap.to(element, {
+      scale: 1,
+      duration: 0.3,
+      ease: 'power2.inOut',
+    });
+  }
+};
+
+onMounted(() => {
+  if (mathisCircle.value) {
+    mathisCircle.value.addEventListener(
+      'mouseenter',
+      () => animateCircle(mathisCircle.value) // Appel de animateCircle au survol
+    );
+    mathisCircle.value.addEventListener(
+      'mouseleave',
+      () => resetCircle(mathisCircle.value) // Appel de resetCircle quand la souris quitte
+    );
+  }
+
+  if (quentinCircle.value) {
+    quentinCircle.value.addEventListener(
+      'mouseenter',
+      () => animateCircle(quentinCircle.value) // Appel de animateCircle au survol
+    );
+    quentinCircle.value.addEventListener(
+      'mouseleave',
+      () => resetCircle(quentinCircle.value) // Appel de resetCircle quand la souris quitte
+    );
+  }
+});
 </script>
+
+<style scoped>
+.bg-dots {
+  background-image: radial-gradient(
+    rgba(223, 70, 62, 0.15) 3px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
+</style>
