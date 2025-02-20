@@ -54,7 +54,7 @@
             name="email"
             as="input"
             id="email"
-            placeholder="agenceQ&M@gmail.com"
+            placeholder="contact@studioqm.fr"
             :class="classesInput"
           />
           <ErrorMessage name="email" :class="textError" />

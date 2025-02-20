@@ -14,11 +14,11 @@
       >
         <NuxtImg
           src="/images/icon.png"
-          alt="M&Q Agence"
+          alt="Studio Q&M"
           class="h-12 w-12 rounded-full"
         />
         <h2 class="stroke-bold text-xl text-(--color-custom-red)">
-          M&Q Agence
+          Studio Q&M
         </h2>
       </div>
       <div class="flex items-center gap-4">

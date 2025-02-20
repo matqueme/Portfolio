@@ -21,21 +21,21 @@ import ToolsSection from '~/components/sections/ToolsSection.vue';
 import ContactSection from '~/components/sections/ContactSection.vue';
 
 useHead({
-  title: 'Agence Q&M - Création de Sites Web sur Mesure à Brest',
+  title: 'Studio Q&M - Création de Sites Web sur Mesure à Brest',
   meta: [
     {
       name: 'description',
       content:
-        'Agence Q&M, spécialiste en création de sites web à Brest. Développement de sites internet sur mesure, référencement naturel (SEO) et solutions adaptées à toutes les tailles de projets.',
+        'Studio Q&M, spécialiste en création de sites web à Brest. Développement de sites internet sur mesure, référencement naturel (SEO) et solutions adaptées à toutes les tailles de projets.',
     },
     {
       name: 'keywords',
       content:
-        'création site web, agence web Brest, développement site internet, référencement naturel, SEO, site web sur mesure, agence digitale',
+        'création site web, agence web Brest, développement site internet, référencement naturel, SEO, site web sur mesure, agence digitale, webdesign, webmarketing, studio Q&M',
     },
     {
       name: 'author',
-      content: 'Agence Q&M',
+      content: 'Studio Q&M',
     },
     {
       name: 'robots',
@@ -44,12 +44,12 @@ useHead({
     // Open Graph (pour les réseaux sociaux)
     {
       property: 'og:title',
-      content: 'Agence Q&M - Création de Sites Web sur Mesure à Brest',
+      content: 'Studio Q&M - Création de Sites Web sur Mesure à Brest',
     },
     {
       property: 'og:description',
       content:
-        'Agence Q&M, spécialiste en création de sites web à Brest. Développement de sites internet sur mesure, référencement naturel (SEO) et solutions adaptées à toutes les tailles de projets.',
+        'Studio Q&M, spécialiste en création de sites web à Brest. Développement de sites internet sur mesure, référencement naturel (SEO) et solutions adaptées à toutes les tailles de projets.',
     },
     {
       property: 'og:type',
@@ -57,15 +57,15 @@ useHead({
     },
     {
       property: 'og:url',
-      content: 'https://www.agence-qm.com', // Remplacez par l'URL de votre site
+      content: 'https://www.studioqm.com', // Remplacez par l'URL de votre site
     },
     {
       property: 'og:image',
-      content: 'https://www.agence-qm.com/images/logo.png', // Remplacez par l'URL de votre image
+      content: 'https://www.studioqm.com/images/logo.png', // Remplacez par l'URL de votre image
     },
     {
       property: 'og:site_name',
-      content: 'Agence Q&M',
+      content: 'Studio Q&M',
     },
     // Twitter Card (optionnel)
     {
@@ -74,20 +74,20 @@ useHead({
     },
     {
       name: 'twitter:title',
-      content: 'Agence Q&M - Création de Sites Web sur Mesure à Brest',
+      content: 'Studio Q&M - Création de Sites Web sur Mesure à Brest',
     },
     {
       name: 'twitter:description',
       content:
-        'Agence Q&M, spécialiste en création de sites web à Brest. Développement de sites internet sur mesure, référencement naturel (SEO) et solutions adaptées à toutes les tailles de projets.',
+        'Studio Q&M, spécialiste en création de sites web à Brest. Développement de sites internet sur mesure, référencement naturel (SEO) et solutions adaptées à toutes les tailles de projets.',
     },
     {
       name: 'twitter:image',
-      content: 'https://www.agence-qm.com/images/logo.png', // Remplacez par l'URL de votre image
+      content: 'https://www.studioqm.com/images/logo.png', // Remplacez par l'URL de votre image
     },
     {
       name: 'twitter:site',
-      content: '@AgenceQM', // Remplacez par votre handle Twitter si vous en avez un
+      content: '@StudioQM', // Remplacez par votre handle Twitter si vous en avez un
     },
   ],
   htmlAttrs: {
@@ -98,7 +98,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: 'https://www.agence-qm.com', // Remplacez par l'URL canonique de votre site
+      href: 'https://www.studioqm.com', // Remplacez par l'URL canonique de votre site
     },
   ],
 });
