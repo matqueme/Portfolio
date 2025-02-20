@@ -11,12 +11,14 @@
         class="relative grid grid-cols-1 items-stretch justify-center gap-16 py-16 lg:grid-cols-3 lg:gap-30"
       >
         <SvgoCorner
+          ref="cornerLeft"
           class="stroke-top-left absolute top-8 left-0 h-18 w-18 stroke-black stroke-6"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
 
         <SvgoCorner
+          ref="cornerRight"
           class="stroke-bottom-right absolute right-0 bottom-0 h-18 w-18 rotate-180 stroke-(--color-custom-red) stroke-6"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -45,11 +47,11 @@
 <script setup lang="ts">
 // @ts-expect-error - Ignore Because import in nuxt-phosphor-icon
 import { PhDeviceMobile, PhPalette, PhMegaphone } from '@phosphor-icons/vue';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+const cornerLeft = ref<HTMLElement | null>(null);
+const cornerRight = ref<HTMLElement | null>(null);
 
 const icons = [PhDeviceMobile, PhPalette, PhMegaphone];
 
@@ -77,42 +79,55 @@ const plans: PlanProps[] = [
   },
 ];
 
-onMounted(() => {
+const animateTopLeftCorner = () => {
   gsap.fromTo(
     '.stroke-top-left',
-    { x: -50, y: -50, opacity: 0 },
+    { x: -150, y: -150, opacity: 0 },
     {
       x: 0,
       y: 0,
       opacity: 1,
-      duration: 1.5,
+      duration: 2,
       ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.section',
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play reverse play reverse',
-      },
+    }
+  );
+};
+
+const animateBottomRightCorner = () => {
+  gsap.fromTo(
+    '.stroke-bottom-right',
+    { x: 100, y: 100, opacity: 0 },
+    {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      duration: 2,
+      ease: 'power2.out',
+    }
+  );
+};
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateTopLeftCorner();
+          animateBottomRightCorner();
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.5,
     }
   );
 
-  // Animation pour le coin en bas à droite
-  gsap.fromTo(
-    '.stroke-bottom-right',
-    { x: 50, y: 50, opacity: 0 },
-    {
-      x: 0,
-      y: 0,
-      opacity: 1,
-      duration: 1.5,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.section',
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play reverse play reverse',
-      },
-    }
-  );
+  if (cornerLeft.value) {
+    observer.observe(cornerLeft.value);
+  }
+  if (cornerRight.value) {
+    observer.observe(cornerRight.value);
+  }
 });
 </script>
