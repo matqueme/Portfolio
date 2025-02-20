@@ -1,47 +1,57 @@
 <template>
-  <div
+  <header
+    role="banner"
     v-show="showNav"
     class="bg-opacity-70 fixed top-0 left-0 z-100 w-full bg-white/20 shadow-lg backdrop-blur-3xl"
   >
-    <nav class="flex items-center justify-between px-4 py-2 backdrop-blur-md">
-      <div class="flex items-center gap-4">
+    <nav
+      class="flex items-center justify-between px-4 py-2 backdrop-blur-md"
+      role="navigation"
+    >
+      <div
+        class="flex items-center gap-4 hover:cursor-pointer"
+        @click="router.push('/')"
+      >
         <NuxtImg
           src="/images/icon.png"
           alt="M&Q Agence"
           class="h-12 w-12 rounded-full"
         />
-        <h1 class="stroke-bold text-xl text-(--color-custom-red)">
+        <h2 class="stroke-bold text-xl text-(--color-custom-red)">
           M&Q Agence
-        </h1>
+        </h2>
       </div>
       <div class="flex items-center gap-4">
         <a
+          href="#projectsSection"
           class="hidden font-bold text-(--color-custom-red) hover:cursor-pointer hover:text-black sm:block"
-          @click="scrollToSection('projectsSection')"
+          aria-label="Projets"
           >Projets</a
         >
         <a
+          href="#offersSection"
           class="hidden font-bold text-(--color-custom-red) hover:cursor-pointer hover:text-black sm:block"
-          @click="scrollToSection('offersSection')"
+          aria-label="Offres"
           >Nos offres</a
         >
         <button
+          @click="router.push('/#contactSection')"
           ref="contactButton"
           class="overflow-hidden rounded-full bg-(--color-custom-red) px-6 py-2 text-sm font-bold text-white hover:cursor-pointer"
           @mouseenter="animateTextSlideIn"
           @mouseleave="animateTextSlideOut"
-          @click="scrollToSection('formComponent')"
         >
           <span ref="textButtonElement" class="flex"> Contactez-nous </span>
         </button>
       </div>
     </nav>
-  </div>
+  </header>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import { gsap } from 'gsap';
+import { useRouter } from 'vue-router';
 
 import { useTextSlideAnimations } from '@/composables/animations';
 
@@ -50,6 +60,7 @@ const { animateTextSlideIn, animateTextSlideOut } =
   useTextSlideAnimations(textButtonElement);
 
 const showNav = ref(false);
+const router = useRouter();
 
 const handleScroll = async () => {
   if (window.scrollY > 0) {
@@ -63,13 +74,6 @@ const handleScroll = async () => {
       await new Promise((resolve) => setTimeout(resolve, 500));
       showNav.value = false;
     }
-  }
-};
-
-const scrollToSection = (sectionId: string) => {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
   }
 };
 

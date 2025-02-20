@@ -31,7 +31,7 @@
         class="mt-2 overflow-hidden rounded-full bg-(--color-custom-red) px-8 py-2 text-lg font-bold text-white hover:cursor-pointer"
         @mouseenter="animateTextSlideIn"
         @mouseleave="animateTextSlideOut"
-        @click="scrollToSection('formComponent')"
+        @click="router.push('/#contactSection')"
       >
         <span ref="textButtonElement" class="flex"> Contactez-nous </span>
       </button>
@@ -42,18 +42,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useTextSlideAnimations } from '@/composables/animations';
+import { useRouter } from 'vue-router';
 
 const textButtonElement = ref<HTMLElement | null>(null);
+const router = useRouter();
 
 const { animateTextSlideIn, animateTextSlideOut } =
   useTextSlideAnimations(textButtonElement);
-
-const scrollToSection = (sectionId: string) => {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 
 interface PlanProps {
   title: string;

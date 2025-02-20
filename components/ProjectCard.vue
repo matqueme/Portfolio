@@ -28,7 +28,12 @@
       <h3 class="text-lg font-semibold">{{ title }}</h3>
       <p class="text-sm">{{ description }}</p>
     </div>
-    <a :href="link" target="_blank">
+    <a
+      :href="link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Voir le projet"
+    >
       <PhosphorIconArrowUpRight
         size="42"
         class="absolute top-0 right-0 z-20 m-4 cursor-pointer rounded-full bg-black/50 px-2 py-1 text-white hover:bg-black"
