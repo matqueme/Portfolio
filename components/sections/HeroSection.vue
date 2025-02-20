@@ -197,9 +197,6 @@ onMounted(() => {
   if (firstLine.value) {
     observer.observe(firstLine.value);
   }
-  if (secondLine.value) {
-    observer.observe(secondLine.value);
-  }
 
   if (notreElement.value) {
     observerText.observe(notreElement.value);
