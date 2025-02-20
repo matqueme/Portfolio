@@ -10,19 +10,21 @@
       <div
         class="relative grid grid-cols-1 items-stretch justify-center gap-16 py-16 lg:grid-cols-3 lg:gap-30"
       >
-        <SvgoCorner
-          ref="cornerLeft"
-          class="stroke-top-left absolute top-8 left-0 h-18 w-18 stroke-black stroke-6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        <div ref="cornerLeft" class="absolute top-8 left-0 h-18 w-18">
+          <SvgoCorner
+            class="stroke-black stroke-6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </div>
 
-        <SvgoCorner
-          ref="cornerRight"
-          class="stroke-bottom-right absolute right-0 bottom-0 h-18 w-18 rotate-180 stroke-(--color-custom-red) stroke-6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        <div ref="cornerRight" class="absolute right-0 bottom-8 h-18 w-18">
+          <SvgoCorner
+            class="rotate-180 stroke-(--color-custom-red) stroke-6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </div>
 
         <div
           v-for="(plan, index) in plans"
@@ -81,7 +83,7 @@ const plans: PlanProps[] = [
 
 const animateTopLeftCorner = () => {
   gsap.fromTo(
-    '.stroke-top-left',
+    cornerLeft.value,
     { x: -150, y: -150, opacity: 0 },
     {
       x: 0,
@@ -95,7 +97,7 @@ const animateTopLeftCorner = () => {
 
 const animateBottomRightCorner = () => {
   gsap.fromTo(
-    '.stroke-bottom-right',
+    cornerRight.value,
     { x: 100, y: 100, opacity: 0 },
     {
       x: 0,
@@ -112,6 +114,7 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          console.log('intersecting');
           animateTopLeftCorner();
           animateBottomRightCorner();
           observer.unobserve(entry.target);
@@ -125,9 +128,6 @@ onMounted(() => {
 
   if (cornerLeft.value) {
     observer.observe(cornerLeft.value);
-  }
-  if (cornerRight.value) {
-    observer.observe(cornerRight.value);
   }
 });
 </script>
