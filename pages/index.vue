@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <main class="page-container" role="main">
     <HeroSection />
     <ActivitiesSectionVue />
     <WhoSection />
@@ -7,7 +7,7 @@
     <LastProjectSection />
     <ToolsSection />
     <ContactSection />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -90,6 +90,11 @@ useHead({
       content: '@AgenceQM', // Remplacez par votre handle Twitter si vous en avez un
     },
   ],
+  htmlAttrs: {
+    lang: 'fr',
+    dir: 'ltr',
+    class: 'scroll-smooth',
+  },
   link: [
     {
       rel: 'canonical',

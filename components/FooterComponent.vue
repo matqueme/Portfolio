@@ -2,6 +2,7 @@
   <footer
     class="relative overflow-hidden bg-black py-8 text-center text-white"
     ref="footer"
+    role="contentinfo"
     @mousemove="animateFooter"
     @mouseleave="removeBubble"
   >
@@ -64,6 +65,7 @@
           <a
             href="https://www.linkedin.com/in/quentin-simler/"
             target="_blank"
+            aria-label="LinkedIn de Quentin Simler"
             rel="noopener noreferrer"
             ref="linkedin1"
             @mouseenter="animateIcon"
@@ -83,6 +85,7 @@
           <a
             href="https://www.linkedin.com/in/mathis-quemener"
             target="_blank"
+            aria-label="LinkedIn de Mathis Quemener"
             rel="noopener noreferrer"
             ref="linkedin2"
             @mouseenter="animateIcon"
