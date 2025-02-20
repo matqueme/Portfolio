@@ -1,5 +1,5 @@
 <template>
-  <div class="section-color bg-[#F0EBE3] text-black" id="formComponent">
+  <div class="section-color bg-[#F0EBE3] text-black" id="contactSection">
     <div class="section text-center">
       <h2>
         Créez le
@@ -26,24 +26,22 @@
         vous accompagner.
       </p>
       <div
-        class="m-10 flex flex-col items-center justify-center gap-4 text-center font-semibold text-(--color-custom-red) sm:flex-row"
+        class="m-10 flex flex-col items-center justify-center gap-4 text-center text-xl font-semibold text-(--color-custom-red) sm:flex-row"
       >
-        <div class="flex flex-col gap-4 text-lg md:flex-row md:gap-8">
-          <a
-            href="tel:+33768081684"
-            target="_blank"
-            class="flex flex-row items-center gap-4 rounded-full border-2 border-(--color-custom-red) px-6 py-2 transition-transform duration-300 hover:scale-110"
-          >
-            <PhosphorIconDeviceMobile size="24" />07 68 08 16 84
-          </a>
-        </div>
         <a
-          href="mailto:agenceQ&M@gmail.com"
+          href="tel:+33768081684"
+          target="_blank"
+          class="flex flex-row items-center gap-4 rounded-full border-2 border-(--color-custom-red) px-6 py-2 transition-transform duration-300 hover:scale-110"
+        >
+          <PhosphorIconDeviceMobile size="24" />07 68 08 16 84
+        </a>
+        <a
+          href="mailto:contact@studioqm.fr"
           target="_blank"
           class="flex flex-row items-center gap-4 rounded-full border-2 border-(--color-custom-red) px-6 py-2 transition-transform duration-300 hover:scale-110"
         >
           <PhosphorIconEnvelope size="24" />
-          agenceQ&M@gmail.com
+          contact@studioqm.fr
         </a>
       </div>
       <p class="font-decorative text-center text-2xl">OU</p>

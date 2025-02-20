@@ -2,23 +2,10 @@
   <footer
     class="relative overflow-hidden bg-black py-8 text-center text-white"
     ref="footer"
+    role="contentinfo"
     @mousemove="animateFooter"
     @mouseleave="removeBubble"
   >
-    <div
-      class="pointer-events-none absolute z-0 h-12 w-12 scale-0 rounded-full bg-(--color-custom-red) blur-xl"
-      ref="bubble"
-    ></div>
-    <div
-      class="absolute top-8 right-8 z-10 flex items-center justify-center gap-4"
-    >
-      <div
-        class="h-1 w-0 rounded-full bg-(--color-custom-red)"
-        ref="decorativeDash"
-      ></div>
-      <div class="h-2 w-2 rounded-full bg-(--color-custom-red)"></div>
-      <div class="h-2 w-2 rounded-full bg-(--color-custom-red)"></div>
-    </div>
     <div class="z-10 flex flex-col items-center gap-4">
       <p
         class="font-decorative stroke-bold z-10 text-3xl text-(--color-custom-red) select-none hover:cursor-pointer"
@@ -41,12 +28,12 @@
         </p>
         <p>
           <a
-            href="mailto:contact@mq.com"
+            href="mailto:contact@studioqm.fr"
             class="opacity-50"
             ref="emailLink"
             @mouseover="animateLink"
             @mouseleave="resetLink"
-            >contact@mq.com</a
+            >contact@studioqm.fr</a
           >
           <span class="opacity-50"> | </span>
           <a
@@ -64,6 +51,7 @@
           <a
             href="https://www.linkedin.com/in/quentin-simler/"
             target="_blank"
+            aria-label="LinkedIn de Quentin Simler"
             rel="noopener noreferrer"
             ref="linkedin1"
             @mouseenter="animateIcon"
@@ -83,6 +71,7 @@
           <a
             href="https://www.linkedin.com/in/mathis-quemener"
             target="_blank"
+            aria-label="LinkedIn de Mathis Quemener"
             rel="noopener noreferrer"
             ref="linkedin2"
             @mouseenter="animateIcon"
@@ -98,6 +87,22 @@
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="pointer-events-none absolute z-0 h-12 w-12 scale-0 rounded-full bg-(--color-custom-red) blur-xl"
+      ref="bubble"
+    ></div>
+    <div
+      class="absolute top-8 right-8 z-10 flex items-center justify-center gap-4"
+    >
+      <div
+        class="h-2 w-2 origin-right rounded-full bg-(--color-custom-red) opacity-0 sm:h-1 sm:w-16 lg:w-32"
+        ref="decorativeDash"
+      />
+      <div class="h-2 w-2 rounded-full bg-(--color-custom-red)" />
+      <div
+        class="hidden h-2 w-2 rounded-full bg-(--color-custom-red) sm:block"
+      />
     </div>
   </footer>
 </template>
@@ -212,14 +217,8 @@ const resetIcon = (event: MouseEvent) => {
 const animateDecorativeDash = () => {
   gsap.fromTo(
     decorativeDash.value,
-    {
-      width: 0,
-    },
-    {
-      duration: 1,
-      width: '8rem',
-      ease: 'power3.inOut',
-    }
+    { scaleX: 0, opacity: 1 },
+    { scaleX: 1, duration: 1, ease: 'power2.inOut' }
   );
 };
 

@@ -27,7 +27,7 @@
           :key="index"
           v-bind="plan"
           class="opacity-0"
-          :class="{ 'md:scale-105': index === 1 }"
+          :class="{ 'md:scale-104': index === 1 }"
         />
       </div>
     </div>

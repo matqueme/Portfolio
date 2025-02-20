@@ -34,7 +34,7 @@
             class="overflow-hidden rounded-full bg-(--color-custom-red) px-6 py-3 text-xl font-bold text-white hover:cursor-pointer"
             @mouseenter="animateTextSlideIn"
             @mouseleave="animateTextSlideOut"
-            @click="scrollToSection('formComponent')"
+            @click="router.push('/#contactSection')"
           >
             <span ref="textButtonElement" class="flex"> Contactez-nous </span>
           </button>
@@ -45,7 +45,7 @@
             @mouseenter="animateButtonCircleIn"
             @mouseleave="animateButtonCircleOut"
             @mousemove="moveCircle"
-            @click="scrollToSection('projectsSection')"
+            @click="router.push('/#projectsSection')"
           >
             <span class="z-40 inline-block"> Découvrez nos projets </span>
             <PhosphorIconArrowCircleRight
@@ -119,6 +119,9 @@ import {
   useButtonCircleAnimations,
   useTextSlideAnimations,
 } from '@/composables/animations';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const notreElement = ref<HTMLElement | null>(null);
 const projectsButton = ref<HTMLElement | null>(null);
@@ -133,13 +136,6 @@ const { animateButtonCircleIn, animateButtonCircleOut, moveCircle } =
   useButtonCircleAnimations(projectsButton, circleElement);
 const { animateTextSlideIn, animateTextSlideOut } =
   useTextSlideAnimations(textButtonElement);
-
-const scrollToSection = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 
 const animateLines = () => {
   if (firstLine.value && secondLine.value) {
@@ -200,9 +196,6 @@ onMounted(() => {
 
   if (firstLine.value) {
     observer.observe(firstLine.value);
-  }
-  if (secondLine.value) {
-    observer.observe(secondLine.value);
   }
 
   if (notreElement.value) {
