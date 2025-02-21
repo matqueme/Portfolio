@@ -36,12 +36,12 @@
           <PhosphorIconDeviceMobile size="24" />07 68 08 16 84
         </a>
         <a
-          href="mailto:contact@studioqm.fr"
+          href="mailto:contact@studio-qm.fr"
           target="_blank"
           class="flex flex-row items-center gap-4 rounded-full border-2 border-(--color-custom-red) px-6 py-2 transition-transform duration-300 hover:scale-110"
         >
           <PhosphorIconEnvelope size="24" />
-          contact@studioqm.fr
+          contact@studio-qm.fr
         </a>
       </div>
       <p class="font-decorative text-center text-2xl">OU</p>
