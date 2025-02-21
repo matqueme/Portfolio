@@ -28,12 +28,12 @@
         </p>
         <p>
           <a
-            href="mailto:contact@studioqm.fr"
+            href="mailto:contact@studio-qm.fr"
             class="opacity-50"
             ref="emailLink"
             @mouseover="animateLink"
             @mouseleave="resetLink"
-            >contact@studioqm.fr</a
+            >contact@studio-qm.fr</a
           >
           <span class="opacity-50"> | </span>
           <a
