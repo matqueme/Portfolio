@@ -61,7 +61,7 @@
           </a>
           <div
             ref="tooltip1"
-            class="absolute bottom-8 left-1/2 mb-2 w-max -translate-x-1/2 scale-90 transform rounded-lg bg-black px-2 py-1 text-xs text-white opacity-0 shadow-lg"
+            class="absolute bottom-8 left-1/2 -z-10 mb-2 w-max -translate-x-1/2 scale-90 transform rounded-lg bg-black px-2 py-1 text-xs text-white opacity-0 shadow-lg"
           >
             LinkedIn de Quentin Simler
           </div>
@@ -81,7 +81,7 @@
           </a>
           <div
             ref="tooltip2"
-            class="absolute bottom-8 left-1/2 mb-2 w-max -translate-x-1/2 scale-100 transform rounded-lg bg-black px-2 py-1 text-xs text-white opacity-0 shadow-lg"
+            class="absolute bottom-8 left-1/2 -z-10 mb-2 w-max -translate-x-1/2 scale-100 transform rounded-lg bg-black px-2 py-1 text-xs text-white opacity-0 shadow-lg"
           >
             LinkedIn de Mathis Quemener
           </div>
@@ -184,6 +184,7 @@ const animateIcon = (event: MouseEvent) => {
     {
       y: 10,
       opacity: 0,
+      zIndex: 1,
     },
     {
       duration: 0.3,
@@ -208,6 +209,7 @@ const resetIcon = (event: MouseEvent) => {
   gsap.to(tooltip, {
     duration: 0.3,
     y: 10,
+    zIndex: -1,
     opacity: 0,
     ease: 'power3.out',
   });
