@@ -1,6 +1,7 @@
 <template>
   <div
     class="flex flex-col rounded-2xl bg-white/80 p-6 text-left text-black shadow-lg backdrop-blur-sm"
+    :id="id"
   >
     <h3 class="text-(--color-custom-red)">
       {{ title }}
@@ -55,6 +56,7 @@ interface PlanProps {
   description: string;
   features: string[];
   price: string;
+  id: string;
 }
 
 defineProps<PlanProps>();

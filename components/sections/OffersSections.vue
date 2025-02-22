@@ -49,6 +49,7 @@ interface PlanProps {
   description: string;
   features: string[];
   price: string;
+  id: string;
 }
 
 const plans: PlanProps[] = [
@@ -66,6 +67,7 @@ const plans: PlanProps[] = [
       'Livraison à partir de 2 semaines',
     ],
     price: 'à partir de <span class="text-xl font-semibold">1200 €</span>',
+    id: 'starter',
   },
   {
     title: 'Plan Pro',
@@ -83,6 +85,7 @@ const plans: PlanProps[] = [
       'Livraison en 3 à 6 semaines',
     ],
     price: 'à partir de <span class="text-xl font-semibold">2000 €</span>',
+    id: 'pro',
   },
   {
     title: 'Plan Sur Mesure',
@@ -100,6 +103,7 @@ const plans: PlanProps[] = [
     ],
     price:
       '<span class="text-xl font-semibold">Sur devis</span> (Devis gratuit)',
+    id: 'sur-mesure',
   },
 ];
 
