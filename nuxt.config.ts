@@ -47,5 +47,10 @@ export default defineNuxtConfig({
     enabled: process.env.NODE_ENV === 'production',
     id: 'G-XXXXXXXXXX',
   },
+  nitro: {
+    output: {
+      dir: 'dist',
+    },
+  },
   schemaOrg: {},
 });
