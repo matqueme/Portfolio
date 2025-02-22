@@ -10,20 +10,9 @@ jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22.11.0
-      - uses: pnpm/action-setup@v3
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 9.12.3
-          run_install: false
+      - uses: actions/checkout@v4
       - name: Install Vercel CLI
-        run: pnpm add --global vercel@latest
+        run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
