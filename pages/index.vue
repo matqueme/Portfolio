@@ -57,11 +57,11 @@ useHead({
     },
     {
       property: 'og:url',
-      content: 'https://www.studioqm.com', // Remplacez par l'URL de votre site
+      content: 'https://www.studio-qm.fr', // Remplacez par l'URL de votre site
     },
     {
       property: 'og:image',
-      content: 'https://www.studioqm.com/images/logo.png', // Remplacez par l'URL de votre image
+      content: 'https://www.studio-qm.fr/images/logo.png', // Remplacez par l'URL de votre image
     },
     {
       property: 'og:site_name',
@@ -83,7 +83,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: 'https://www.studioqm.com/images/logo.png', // Remplacez par l'URL de votre image
+      content: 'https://www.studio-qm.fr/images/logo.png', // Remplacez par l'URL de votre image
     },
     {
       name: 'twitter:site',
@@ -98,7 +98,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: 'https://www.studioqm.com', // Remplacez par l'URL canonique de votre site
+      href: 'https://www.studio-qm.fr', // Remplacez par l'URL canonique de votre site
     },
   ],
 });
