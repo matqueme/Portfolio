@@ -1,77 +1,78 @@
-# Nuxt Minimal Starter
+# Studio Q&M - Création de Sites Web sur Mesure à Brest
 
-This is an minimal starter template for [Nuxt 3](https://nuxt.com).
+Bienvenue dans le dépôt du projet **Studio Q&M**. Ce projet est un site web développé avec Nuxt.js, offrant des services de création de sites web sur mesure, de référencement naturel (SEO) et de solutions adaptées à toutes les tailles de projets.
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Table des matières
 
-> Vite5 Vue3 JavaScript Starter Template requires Node >= 18.00
+- [Aperçu](#aperçu)
+- [Fonctionnalités](#fonctionnalités)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
+- [Scripts](#scripts)
+- [Licence](#licence)
 
-## Features
+## Aperçu
 
-- 📦 [Nuxt 3](https://github.com/nuxt/nuxt) - Intuitive Vue Framework
-- ⚡️ [Vite 5](https://github.com/vitejs/vite) - Born with fastness
-- 🖖 [Vue 3](https://github.com/vuejs/core) - Composition API and `<script setup>`4s
-- 🚦 [Vue Router](https://github.com/vuejs/router) - The official router for Vue.js.
-- 🔥 [TypeScript](https://github.com/microsoft/TypeScript) - Strongly typed programming language that builds on JavaScript
-- 🔍 [@nuxt/image](https://github.com/nuxt/image) - Optimized images for Nuxt
-- 🤖 [@nuxtjs/robots](https://github.com/nuxt-modules/robots) - Robots.txt module for Nuxt
-- 🗺️ [@nuxtjs/sitemap](https://github.com/nuxt-modules/sitemap) - Sitemap module for Nuxt
-- 📈 [nuxt-gtag](https://github.com/johannschopplich/nuxt-gtag) - Google Analytics module for Nuxt
-- 📚 [nuxt-schema-org](https://github.com/harlan-zw/nuxt-schema-org) - Schema.org integration for Nuxt
-- 🖼️ [nuxt-svgo](https://github.com/cpsoinos/nuxt-svgo) - SVGO module for Nuxt
-- 🎨 [nuxt-phosphor-icons](https://github.com/oyedejioyewole/nuxt-phosphor-icons) - Phosphor icons for Nuxt
-- 🌈 [tailwindcss](https://github.com/tailwindlabs/tailwindcss) - Utility-first CSS framework
-- 🌍 [@nuxtjs/i18n](https://github.com/nuxt-modules/i18n) - Internationalization module for Nuxt
-- 🛠️ [@pinia/nuxt](https://github.com/posva/pinia) - The intuitive store for Vue.js
+Studio Q&M est spécialisé dans la création de sites web à Brest. Nous offrons des services de développement de sites internet sur mesure, de référencement naturel (SEO) et de solutions adaptées à toutes les tailles de projets.
 
-## Coding Style
+## Fonctionnalités
 
-- Use Composition API with [`<script setup>` SFC syntax](https://github.com/vuejs/rfcs/pull/227)
-- [ESLint](https://eslint.org)
-- [Prettier](https://prettier.io)
+- Création de sites web sur mesure
+- Référencement naturel (SEO)
+- Design responsive (mobile, tablette, ordinateur)
+- Formulaire de contact
+- Hébergement et nom de domaine (en option)
 
-## Development Tools
+## Installation
 
-- [pnpm](https://pnpm.io/) - Fast, disk space efficient package manager
-- [Visual Stuido Code Extensions](./.vscode/extensions.json)
-  - [Vite](https://marketplace.visualstudio.com/items?itemName=antfu.vite) - Fire up Vite server automatically
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) - Vue 3 `<script setup>` IDE support
-  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Find and fix problems in your JavaScript code
-  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - An opinionated code formatter
+Pour installer et configurer le projet localement, suivez ces étapes :
 
-### Clone to local
+1. Clonez le dépôt :
 
-```bash
-git clone  https://github.com/matqueme/Nuxt-Minimal-Starter-Template.git
+   ```sh
+   git clone ...
+   cd votre-repo
+   ```
 
-cd Nuxt-Minimal-Starter-Template
+2. Installez les dépendances :
 
-pnpm install
+   ```sh
+   pnpm install
+   ```
+
+3. Créez un fichier [.env](http://_vscodecontentref_/0) en vous basant sur [.env.example](http://_vscodecontentref_/1) et configurez les variables d'environnement nécessaires.
+
+## Utilisation
+
+Pour démarrer le projet en mode développement, exécutez :
+
+```sh
+pnpm run dev
 ```
 
-### Start the development server
+Pour générer le site statique, exécutez :
 
-```bash
-#Install dependencies
-pnpm install
-
-# Start the development server
-pnpm dev
-
-# Start the development server for all devices
-pnpm dev:host
+```sh
+pnpm run generate
 ```
 
-> Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pour prévisualiser le site généré, exécutez :
 
-### Checklist
+```sh
+pnpm run preview
+```
 
-- [ ] Update `package.json` with your project details
-- [ ] Remove the example content from `README.md`
-- [ ] Update the `LICENSE` file with your project license
-- [ ] Remove the `.github` directory which contains the funding information
-- [ ] Configure `_robots.txt` file in the `public` directory with the url of your sitemap
-- [ ] Set up Google Analytics id in `nuxt.config.ts`
-- [ ] Add SEO metadata in `nuxt.config.ts`
-- [ ] Update the 'site' object in `nuxt.config.ts` with your site information
-- [ ] Add the favicon in the `public` directory
+## Scripts
+
+Voici une liste des scripts disponibles :
+
+- `dev` : démarre le projet en mode développement
+- `dev:host` : démarre le projet en mode développement avec un hôte personnalisé (mobile sur le même réseau)
+- `build` : compile le projet pour la production
+- `generate` : génère le site statique
+- `preview` : prévisualise le site généré
+- `lint` : exécute le linter pour vérifier le code
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier LICENCE pour plus de détails.
