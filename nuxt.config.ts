@@ -41,8 +41,8 @@ export default defineNuxtConfig({
     lazy: true,
   },
   site: {
-    url: '',
-    name: '',
+    url: 'https://studio-qm.fr',
+    name: 'Q&M Studio',
   },
   gtag: {
     enabled: process.env.NODE_ENV === 'production',
