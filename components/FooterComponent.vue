@@ -151,10 +151,10 @@ const animateFooter = (event: MouseEvent) => {
   gsap.to(bubble.value, {
     duration: 0.4,
     x: clientX - left - 25,
-    y: clientY - top - 50,
+    y: clientY - top - 250,
     scale: 1,
     opacity: 1,
-    zIndex: 1,
+    zIndex: 0,
     ease: 'power2.out',
   });
 };
