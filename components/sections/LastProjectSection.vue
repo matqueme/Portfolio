@@ -46,6 +46,13 @@
           image="/images/Greet-Hotel-Brest.webp"
           link="https://greet-hotel-brest.vercel.app/"
         />
+
+        <ProjectCard
+          title="Couvreur Brest"
+          description="Site vitrine pour un couvreur à Brest."
+          image="/images/Couvreur-Brest.webp"
+          link="https://couvreur-brest.vercel.app/"
+        />
       </div>
     </div>
   </div>
