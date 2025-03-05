@@ -1,6 +1,7 @@
 <template>
   <HeaderComponent />
   <NuxtPage />
+  <CookieComponent />
   <FooterComponent />
 </template>
 
