@@ -1,9 +1,11 @@
 <template>
   <div
     v-if="!cookiesAccepted"
-    class="fixed right-0 bottom-0 z-50 w-full rounded-lg p-2 md:right-4 md:bottom-4 md:w-[400px] lg:w-[500px] xl:w-[600px] 2xl:w-[700px]"
+    class="fixed right-0 bottom-0 z-50 w-full md:right-4 md:bottom-4 md:w-[500px] md:p-2 lg:w-[600px] xl:w-[600px] 2xl:w-[700px]"
   >
-    <div class="rounded-lg bg-(--color-custom-beige) p-4 text-black shadow-2xl">
+    <div
+      class="rounded-ss-sm bg-(--color-custom-beige) p-4 text-black shadow-2xl md:rounded-lg"
+    >
       <div class="mb-4 flex flex-col gap-4">
         <div class="flex items-center gap-3">
           <SvgoCookie class="h-12 w-12" />
