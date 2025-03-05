@@ -1,6 +1,7 @@
 <template>
   <header
     role="banner"
+    ref="header"
     v-show="showNav"
     class="bg-opacity-70 fixed top-0 left-0 z-100 w-full bg-white/20 shadow-lg backdrop-blur-3xl"
   >
@@ -61,16 +62,17 @@ const { animateTextSlideIn, animateTextSlideOut } =
 
 const showNav = ref(false);
 const router = useRouter();
+const header = ref<HTMLElement | null>(null);
 
 const handleScroll = async () => {
   if (window.scrollY > 0) {
     if (!showNav.value) {
-      gsap.to('.fixed', { y: 0, duration: 0.5 });
+      gsap.to(header, { y: 0, duration: 0.5 });
       showNav.value = true;
     }
   } else {
     if (showNav.value) {
-      gsap.to('.fixed', { y: -100, duration: 0.5 });
+      gsap.to(header, { y: -100, duration: 0.5 });
       await new Promise((resolve) => setTimeout(resolve, 500));
       showNav.value = false;
     }
@@ -81,7 +83,7 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 
   if (window.scrollY > 0) {
-    gsap.to('.fixed', { y: 0, duration: 0.5 });
+    gsap.to(header, { y: 0, duration: 0.5 });
     showNav.value = true;
   }
 });
