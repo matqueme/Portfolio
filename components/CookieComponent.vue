@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="!cookiesAccepted"
+    v-if="!cookieWindow"
     class="fixed right-0 bottom-0 z-50 w-full md:right-4 md:bottom-4 md:w-[500px] md:p-2 lg:w-[600px] xl:w-[600px] 2xl:w-[700px]"
   >
     <div
@@ -18,7 +18,7 @@
           Vous pouvez refuser les cookies si vous le souhaitez.
         </p>
       </div>
-      <div class="flex justify-end space-x-2">
+      <div class="flex justify-end gap-2">
         <button
           @click="declineCookies"
           class="rounded-full bg-gray-500 px-4 py-2 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-600"
@@ -39,14 +39,14 @@
 import { useCookie } from '#app';
 import { useGtag } from '#imports';
 
-const cookiesAccepted = useCookie('cookiesAccepted', {
+const cookieWindow = useCookie('cookieWindow', {
   default: () => 'false',
 });
 
 const { gtag } = useGtag();
 
 const acceptCookies = () => {
-  cookiesAccepted.value = 'true';
+  cookieWindow.value = 'true';
   gtag('consent', 'update', {
     ad_user_data: 'granted',
     ad_personalization: 'granted',
@@ -56,6 +56,6 @@ const acceptCookies = () => {
 };
 
 const declineCookies = () => {
-  cookiesAccepted.value = 'false';
+  cookieWindow.value = 'true';
 };
 </script>
