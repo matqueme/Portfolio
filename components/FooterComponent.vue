@@ -17,13 +17,13 @@
       <div class="flex flex-col items-center gap-2">
         <p>© 2025 - Q&M - Tous droits réservés</p>
         <p>
-          <a
-            href="#"
+          <NuxtLink
+            to="/mentionslegales"
             class="opacity-50"
             ref="legalLink"
             @mouseover="animateLink"
             @mouseleave="resetLink"
-            >Mentions légales</a
+            >Mentions légales</NuxtLink
           >
         </p>
         <p>
