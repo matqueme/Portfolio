@@ -67,12 +67,12 @@ const header = ref<HTMLElement | null>(null);
 const handleScroll = async () => {
   if (window.scrollY > 0) {
     if (!showNav.value) {
-      gsap.to(header, { y: 0, duration: 0.5 });
+      gsap.to(header.value, { y: 0, duration: 0.5 });
       showNav.value = true;
     }
   } else {
     if (showNav.value) {
-      gsap.to(header, { y: -100, duration: 0.5 });
+      gsap.to(header.value, { y: -100, duration: 0.5 });
       await new Promise((resolve) => setTimeout(resolve, 500));
       showNav.value = false;
     }
@@ -83,7 +83,7 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 
   if (window.scrollY > 0) {
-    gsap.to(header, { y: 0, duration: 0.5 });
+    gsap.to(header.value, { y: 0, duration: 0.5 });
     showNav.value = true;
   }
 });
