@@ -12,7 +12,7 @@
           >
             différents</span
           >
-          outils pour réaliser nos projets
+          outils pour réaliser vos projets
         </h2>
         <p>
           Des technologies de pointe pour des sites web bâtis sur des bases
