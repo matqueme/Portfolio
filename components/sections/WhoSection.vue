@@ -3,12 +3,12 @@
     <div class="section flex flex-col items-center gap-10 md:flex-row">
       <div class="w-full text-left md:w-2/3">
         <h2 class="mb-10">
-          Qui nous
+          Qui sommes
           <div @mouseenter="animateText3DRotate" class="inline-block">
             <span
               ref="notreElement"
               class="inline-block text-(--color-custom-red)"
-              >sommes</span
+              >nous</span
             >
           </div>
           ?
