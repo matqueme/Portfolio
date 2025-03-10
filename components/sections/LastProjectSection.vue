@@ -44,7 +44,7 @@
           title="Greet Hotel Brest"
           description="Site vitrine & réservation pour un hôtel à Brest."
           image="/images/Greet-Hotel-Brest.webp"
-          link="https://greet-hotel-brest.vercel.app/"
+          link="https://www.greethotelbrest.com/"
         />
 
         <ProjectCard
