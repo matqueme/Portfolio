@@ -38,6 +38,14 @@
           description="Site vitrine pour une entreprise de débarras en Bretagne."
           image="/images/debarrasbreton.webp"
           link="https://www.debarrasbreton.fr"
+          :reviews="[
+            {
+              name: 'Samuel M.',
+              rating: 5,
+              comment:
+                'Travail impeccable, site web moderne et efficace. SEO optimisé comme promis.',
+            },
+          ]"
         />
 
         <ProjectCard

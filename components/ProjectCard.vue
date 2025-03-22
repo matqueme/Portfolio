@@ -23,11 +23,15 @@
     </div>
 
     <div
-      class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/50 to-transparent px-6 py-4 text-white"
+      class="absolute bottom-0 left-0 z-20 w-full bg-gradient-to-t from-black/50 to-transparent px-6 py-4 text-white"
     >
       <h3 class="text-lg font-semibold">{{ title }}</h3>
       <p class="text-sm">{{ description }}</p>
+
+      <!-- Reviews Section -->
+      <ProjectReviews :reviews="reviews" />
     </div>
+
     <a
       :href="link"
       target="_blank"
@@ -46,12 +50,23 @@
 import { ref } from 'vue';
 import gsap from 'gsap';
 
-defineProps<{
+interface Review {
+  name: string;
+  rating: number;
+  comment: string;
+}
+
+interface Props {
   title: string;
   description: string;
   image: string;
   link: string;
-}>();
+  reviews?: Review[];
+}
+
+withDefaults(defineProps<Props>(), {
+  reviews: () => [],
+});
 
 const imageWrapper = ref<HTMLElement | null>(null);
 const isHovered = ref(false);
