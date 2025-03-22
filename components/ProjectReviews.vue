@@ -36,42 +36,45 @@
             ? "Voir l'avis (1)"
             : `Voir les avis (${reviews.length})`
       }}
-      <PhosphorIconCaretUp v-if="showReviews" class="ml-1 h-3 w-3" />
+      <PhosphorIconCaretUp
+        v-if="showReviews"
+        class="ml-1 h-3 w-3 transition-transform"
+      />
       <PhosphorIconCaretDown v-else class="ml-1 h-3 w-3 transition-transform" />
     </button>
 
     <!-- Reviews list (expandable) -->
     <div
-      v-if="showReviews"
-      :class="[
-        'styled-scrollbar mt-2 max-h-32 space-y-2',
-        needsScrollbar ? 'overflow-y-auto' : '',
-      ]"
+      ref="reviewsContainer"
+      class="styled-scrollbar mt-2 overflow-hidden"
+      :style="{ height: reviewsHeight }"
     >
-      <div v-for="(review, idx) in reviews" :key="idx" class="text-xs">
-        <div class="flex items-center">
-          <span class="font-semibold">{{ review.name }}</span>
-          <div class="ml-2 flex">
-            <template v-for="i in 5" :key="`r-${idx}-${i}`">
-              <PhosphorIconStar
-                v-if="i <= Math.floor(review.rating)"
-                weight="fill"
-                class="text-xs text-yellow-400"
-              />
-              <PhosphorIconStarHalf
-                v-else-if="i - review.rating <= 0.5 && i - review.rating > 0"
-                weight="fill"
-                class="text-xs text-yellow-400"
-              />
-              <PhosphorIconStar
-                v-else
-                weight="light"
-                class="text-xs text-gray-400"
-              />
-            </template>
+      <div class="space-y-2" :class="[needsScrollbar ? 'overflow-y-auto' : '']">
+        <div v-for="(review, idx) in reviews" :key="idx" class="text-xs">
+          <div class="flex items-center">
+            <span class="font-semibold">{{ review.name }}</span>
+            <div class="ml-2 flex">
+              <template v-for="i in 5" :key="`r-${idx}-${i}`">
+                <PhosphorIconStar
+                  v-if="i <= Math.floor(review.rating)"
+                  weight="fill"
+                  class="text-xs text-yellow-400"
+                />
+                <PhosphorIconStarHalf
+                  v-else-if="i - review.rating <= 0.5 && i - review.rating > 0"
+                  weight="fill"
+                  class="text-xs text-yellow-400"
+                />
+                <PhosphorIconStar
+                  v-else
+                  weight="light"
+                  class="text-xs text-gray-400"
+                />
+              </template>
+            </div>
           </div>
+          <p class="text-xs text-white/80 italic">« {{ review.comment }} »</p>
         </div>
-        <p class="text-xs text-white/80 italic">« {{ review.comment }} »</p>
       </div>
     </div>
   </div>
@@ -79,6 +82,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, onMounted, nextTick, watch } from 'vue';
+import gsap from 'gsap';
 
 interface Review {
   name: string;
@@ -91,6 +95,8 @@ const props = defineProps<{
 }>();
 
 const showReviews = ref(false);
+const reviewsHeight = ref('0px');
+const contentHeight = ref(0);
 
 const rating = computed(() => {
   if (!props.reviews || props.reviews.length === 0) return 0;
@@ -104,20 +110,43 @@ const needsScrollbar = ref(false);
 const checkScrollbarNeeded = async () => {
   await nextTick();
   if (reviewsContainer.value) {
+    contentHeight.value = reviewsContainer.value.scrollHeight;
     needsScrollbar.value =
-      reviewsContainer.value.scrollHeight > reviewsContainer.value.clientHeight;
+      contentHeight.value > Math.min(contentHeight.value, 128); // 128px = 32rem (max-h-32)
   }
 };
 
+const animateReviews = (isOpen: boolean) => {
+  const height = isOpen ? Math.min(contentHeight.value, 128) + 'px' : '0px';
+
+  gsap.to(reviewsContainer.value, {
+    height: height,
+    duration: 0.5,
+    ease: 'power4.inOut',
+    onStart: () => {
+      if (isOpen) {
+        reviewsHeight.value = '0px'; // Assure que ça commence de zéro à l'ouverture
+      }
+    },
+    onComplete: () => {
+      if (isOpen) {
+        reviewsHeight.value = height;
+      } else {
+        reviewsHeight.value = '0px';
+      }
+    },
+  });
+};
+
 watch(showReviews, async (newVal) => {
-  if (newVal) {
-    await checkScrollbarNeeded();
-  }
+  animateReviews(newVal);
+  await checkScrollbarNeeded();
 });
 
 onMounted(async () => {
+  await checkScrollbarNeeded();
   if (showReviews.value) {
-    await checkScrollbarNeeded();
+    reviewsHeight.value = Math.min(contentHeight.value, 128) + 'px';
   }
 });
 
